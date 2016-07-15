@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Pedido {
 	private int id, id_produto, quantidade;
+	
 	Date data = new Date();
 	public int getId() {
 		return id;
