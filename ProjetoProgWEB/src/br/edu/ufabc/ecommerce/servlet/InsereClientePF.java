@@ -24,8 +24,8 @@ public class InsereClientePF extends HttpServlet {
 		String email = req.getParameter("email");
 		String endereco = req.getParameter("endereco");
 		String telefone = req.getParameter("telefone");
-		int RG = Integer.parseInt(req.getParameter("RG"));
-		int CPF = Integer.parseInt(req.getParameter("CPF"));
+		String RG = req.getParameter("RG");
+		String CPF = req.getParameter("CPF");
 		
 		// obtem parametros do request para Tabela Usuário
 		String login = req.getParameter("login");

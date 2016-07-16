@@ -1,8 +1,8 @@
 package br.edu.ufabc.ecommerce.model;
 
 public class Usuario {
-	private int id, id_cliente, CPF;
-	private String login, senha, nome;
+	private int id, id_cliente;
+	private String CPF, login, senha, nome;
 
 	public int getId() {
 		return id;
@@ -16,10 +16,10 @@ public class Usuario {
 	public void setId_cliente(int id_cliente) {
 		this.id_cliente = id_cliente;
 	}
-	public int getCPF() {
+	public String getCPF() {
 		return CPF;
 	}
-	public void setCPF(int cPF) {
+	public void setCPF(String cPF) {
 		CPF = cPF;
 	}
 	public String getLogin() {

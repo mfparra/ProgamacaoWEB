@@ -1,51 +1,53 @@
 package br.edu.ufabc.ecommerce.model;
 
 public class Cliente {
-	private String nome, email, endereco, telefone, rasaoSocial;
-	private int id, RG, CPF, CNPJ;
-
-	public String getRasaoSocial() {
-		return rasaoSocial;
+	private String nome, email, endereco, telefone, razaoSocial;
+	private int id;
+	private String RG, CPF, CNPJ;
+	private char tipoCliente;
+	
+	public String getRazaoSocial() {
+		return razaoSocial;
 	}
 
-	public void setRasaoSocial(String rasaoSocial) {
-		this.rasaoSocial = rasaoSocial;
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
 	}
 
-	public int getCNPJ() {
-		return CNPJ;
+	public String getCNPJ() {
+		return this.CNPJ;
 	}
 
-	public void setCNPJ(int cNPJ) {
-		CNPJ = cNPJ;
+	public void setCNPJ(String cNPJ) {
+		this.CNPJ = cNPJ;
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public int getRG() {
-		return RG;
+	public String getRG() {
+		return this.RG;
 	}
 
-	public void setRG(int rG) {
-		RG = rG;
+	public void setRG(String rG) {
+		this.RG = rG;
 	}
 
-	public int getCPF() {
-		return CPF;
+	public String getCPF() {
+		return this.CPF;
 	}
 
-	public void setCPF(int cPF) {
-		CPF = cPF;
+	public void setCPF(String cPF) {
+		this.CPF = cPF;
 	}
 
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	public void setNome(String nome) {
@@ -61,7 +63,7 @@ public class Cliente {
 	}
 
 	public String getEndereco() {
-		return endereco;
+		return this.endereco;
 	}
 
 	public void setEndereco(String endereco) {
@@ -69,10 +71,20 @@ public class Cliente {
 	}
 
 	public String getTelefone() {
-		return telefone;
+		return this.telefone;
 	}
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
+	public char getTipoCliente() {
+		return this.tipoCliente;
+	}
+
+	public void setTipoCliente(char tipoCliente) {
+		this.tipoCliente = tipoCliente;
+	}
+	
+	 
 }
