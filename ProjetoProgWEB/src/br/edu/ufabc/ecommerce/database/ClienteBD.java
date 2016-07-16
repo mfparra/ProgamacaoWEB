@@ -1,21 +1,20 @@
-package br.edu.ufabc.projetoWEB.bancoDados;
+package br.edu.ufabc.ecommerce.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
-import br.edu.ufabc.projetoWEB.jdbc.ConexaoBD;
-import br.edu.ufabc.projetoWEB.modelo.Cliente;
-import br.edu.ufabc.projetoWEB.modelo.Usuario;
+import br.edu.ufabc.ecommerce.jdbc.ConexaoBD;
+import br.edu.ufabc.ecommerce.model.Cliente;
+import br.edu.ufabc.ecommerce.model.Usuario;
 
 public class ClienteBD {
 	private Connection connection;
 
 	public ClienteBD() {
 		// cria uma conexao com o BD
-		this.connection = new ConexaoBD().getConnection();
+		this.connection = new ConexaoBD().getConexaoBD();
 	}
 
 	public void fechaConexao() {

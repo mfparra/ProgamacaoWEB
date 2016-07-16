@@ -1,4 +1,4 @@
-package br.edu.ufabc.projetoWEB.modelo;
+package br.edu.ufabc.ecommerce.model;
 
 public class Produto {
 	private int id, durBateria, tamTela;

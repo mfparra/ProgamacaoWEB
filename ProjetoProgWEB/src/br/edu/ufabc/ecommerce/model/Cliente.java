@@ -1,9 +1,8 @@
-package br.edu.ufabc.projetoWEB.modelo;
+package br.edu.ufabc.ecommerce.model;
 
 public class Cliente {
-	private String nome, email, endereco, telefone,rasaoSocial;
-	private int id, RG, CPF,CNPJ;
-	
+	private String nome, email, endereco, telefone, rasaoSocial;
+	private int id, RG, CPF, CNPJ;
 
 	public String getRasaoSocial() {
 		return rasaoSocial;
@@ -76,7 +75,4 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
-	
-	
 }

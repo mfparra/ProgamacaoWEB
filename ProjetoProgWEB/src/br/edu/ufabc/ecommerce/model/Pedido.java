@@ -1,4 +1,4 @@
-package br.edu.ufabc.projetoWEB.modelo;
+package br.edu.ufabc.ecommerce.model;
 
 import java.util.Date;
 

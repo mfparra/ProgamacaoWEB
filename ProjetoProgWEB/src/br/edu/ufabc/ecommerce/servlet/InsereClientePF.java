@@ -1,15 +1,17 @@
-package br.edu.ufabc.projetoWEB.servlet;
+package br.edu.ufabc.ecommerce.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import br.edu.ufabc.projetoWEB.bancoDados.ClienteBD;
-import br.edu.ufabc.projetoWEB.modelo.Cliente;
-import br.edu.ufabc.projetoWEB.modelo.Usuario;
+import br.edu.ufabc.ecommerce.database.ClienteBD;
+import br.edu.ufabc.ecommerce.model.Cliente;
+import br.edu.ufabc.ecommerce.model.Usuario;
 
 @WebServlet("/cadastroPessoaFisica")
 public class InsereClientePF extends HttpServlet {
