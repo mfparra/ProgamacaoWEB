@@ -5,7 +5,7 @@ public class Produto {
 	private Categoria categoria;
 	private Fabricante fabricante;
 	private Long durBateria, tamTela;
-	private Float valor;
+	private Double valor;
 	private String modelo, descricao;
 
 	public Long getId() {
@@ -32,11 +32,11 @@ public class Produto {
 		this.tamTela = tamTela;
 	}
 
-	public double getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(Float valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 

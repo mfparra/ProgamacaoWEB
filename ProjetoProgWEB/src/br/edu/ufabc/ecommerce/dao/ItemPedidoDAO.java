@@ -37,7 +37,6 @@ public class ItemPedidoDAO {
 			stmt.setLong(1, itemPedido.getPedido().getId());
 			stmt.setLong(2, itemPedido.getProduto().getId());
 			stmt.setLong(3, itemPedido.getQuantidade());
-
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -66,9 +65,6 @@ public class ItemPedidoDAO {
 			stmt.setLong(2, itemPedido.getId());
 			stmt.execute();
 			stmt.close();
-
-			stmt.execute();
-			stmt.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -80,7 +76,7 @@ public class ItemPedidoDAO {
 		ProdutoDAO produtoDAO = new ProdutoDAO();
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("select * from itemPedido where pedido = ?");
+			stmt = connection.prepareStatement("select * from itemPedido where id_pedido = ?");
 			stmt.setLong(1, pedido.getId());
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {

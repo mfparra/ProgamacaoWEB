@@ -60,8 +60,7 @@ public class ProdutoDAO {
 
 	// altera dados de um produto
 	public void altera(Produto produto) {
-		String sql = "update produto set id_categoria = ?, id_fabricante = ?, modelo = ?, descricao = ?, valor = ?, duracaoBateria = ?, tamanhoTela = ?"
-				+ "where id = ?";
+		String sql = "update produto set id_categoria = ?, id_fabricante = ?, modelo = ?, descricao = ?, valor = ?, duracaoBateria = ?, tamanhoTela = ? where id = ?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setLong(1, produto.getCategoria().getId());
@@ -72,9 +71,6 @@ public class ProdutoDAO {
 			stmt.setLong(6, produto.getDurBateria());
 			stmt.setLong(7, produto.getTamTela());
 			stmt.setLong(8, produto.getId());
-			stmt.execute();
-			stmt.close();
-
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -96,13 +92,13 @@ public class ProdutoDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				produto.setId(id);
-				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(rs.getLong("categoria")));
+				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(rs.getLong("id_categoria")));
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setDurBateria(rs.getLong("duracaoBateria"));
-				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("fabricante")));
+				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("id_fabricante")));
 				produto.setModelo(rs.getString("modelo"));
 				produto.setTamTela(rs.getLong("tamanhoTela"));
-				produto.setValor(rs.getFloat("valor"));
+				produto.setValor(rs.getDouble("valor"));
 			}
 			rs.close();
 			stmt.close();
@@ -128,13 +124,13 @@ public class ProdutoDAO {
 				Produto produto = new Produto();
 				produto.setModelo(modelo);
 				produto.setId(rs.getLong("id"));
-				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(rs.getLong("categoria")));
+				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(rs.getLong("id_categoria")));
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setDurBateria(rs.getLong("duracaoBateria"));
-				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("fabricante")));
+				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("id_fabricante")));
 				produto.setModelo(rs.getString("modelo"));
 				produto.setTamTela(rs.getLong("tamanhoTela"));
-				produto.setValor(rs.getFloat("valor"));
+				produto.setValor(rs.getDouble("valor"));
 				produtos.add(produto);
 			}
 			rs.close();
@@ -157,14 +153,14 @@ public class ProdutoDAO {
 			while (rs.next()) {
 				Produto produto = new Produto();
 				produto.setId(rs.getLong("id"));
-				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(rs.getLong("categoria")));
+				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(rs.getLong("id_categoria")));
 				produto.setModelo(rs.getString("modelo"));
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setDurBateria(rs.getLong("duracaoBateria"));
-				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("fabricante")));
+				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("id_fabricante")));
 				produto.setModelo(rs.getString("modelo"));
 				produto.setTamTela(rs.getLong("tamanhoTela"));
-				produto.setValor(rs.getFloat("valor"));
+				produto.setValor(rs.getDouble("valor"));
 				produtos.add(produto);
 			}
 			rs.close();

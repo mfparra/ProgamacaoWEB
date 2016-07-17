@@ -1,6 +1,7 @@
 package br.edu.ufabc.ecommerce.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,7 +35,7 @@ public class PedidoDAO {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			// seta valores na tabela Produto
 			stmt.setLong(1, pedido.getCliente().getId());
-			stmt.setTimestamp(2, pedido.getDataPedido());
+			stmt.setDate(2, pedido.getDataPedido());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -60,11 +61,8 @@ public class PedidoDAO {
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setLong(1, pedido.getCliente().getId());
-			stmt.setTimestamp(2, pedido.getDataPedido());
+			stmt.setDate(2, (Date) pedido.getDataPedido());
 			stmt.setLong(3, pedido.getId());
-			stmt.execute();
-			stmt.close();
-
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -85,7 +83,7 @@ public class PedidoDAO {
 			while (rs.next()) {
 				pedido.setId(id);
 				pedido.setCliente(clienteDAO.buscaClientePeloID(rs.getLong("id_cliente")));
-				pedido.setDataPedido(rs.getTimestamp("data"));
+				pedido.setDataPedido(rs.getDate("data"));
 			}
 			rs.close();
 			stmt.close();
@@ -107,7 +105,7 @@ public class PedidoDAO {
 				Pedido pedido = new Pedido();
 				pedido.setId(rs.getLong("id"));
 				pedido.setCliente(clienteDAO.buscaClientePeloID(rs.getLong("id_cliente")));
-				pedido.setDataPedido(rs.getTimestamp("data"));
+				pedido.setDataPedido(rs.getDate("data"));
 				pedidos.add(pedido);
 			}
 			rs.close();

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufabc.ecommerce.jdbc.ConexaoBD;
+import br.edu.ufabc.ecommerce.model.Fabricante;
 import br.edu.ufabc.ecommerce.model.Imagem;
 import br.edu.ufabc.ecommerce.model.Produto;
 
@@ -65,13 +66,34 @@ public class ImagemDAO {
 			stmt.execute();
 			stmt.close();
 
-			stmt.execute();
-			stmt.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}
 
+	// faz a busca de imagem pelo ID
+	public Imagem buscaImagemPeloID(Long id) {
+		Imagem imagem = new Imagem();
+		ProdutoDAO produtoDAO = new ProdutoDAO();
+		PreparedStatement stmt;
+		String sql = "select * from imagem where id = ?";
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setLong(1, id);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				imagem.setId(id);
+				imagem.setBytes(rs.getBytes("imagem"));
+				imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return imagem;
+	}
+	
 	// devolve uma lista com todas as imagens de um produto
 	public List<Imagem> getLista(Produto produto) {
 		List<Imagem> imagens = new ArrayList<Imagem>();

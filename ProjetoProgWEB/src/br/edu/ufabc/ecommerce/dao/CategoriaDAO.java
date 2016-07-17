@@ -64,9 +64,6 @@ public class CategoriaDAO {
 			stmt.setLong(3, categoria.getId());
 			stmt.execute();
 			stmt.close();
-
-			stmt.execute();
-			stmt.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

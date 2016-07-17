@@ -96,6 +96,7 @@ public class ClienteDAO {
 				ResultSet rs = stmt.executeQuery();
 				while (rs.next()) {
 					cliente.setId(id);
+					cliente.setNome(rs.getString("nome"));
 					cliente.setTipoCliente(rs.getString("tipoCliente"));
 					cliente.setRazaoSocial(rs.getString("razaoSocial"));
 					cliente.setEmail(rs.getString("email"));
@@ -126,6 +127,7 @@ public class ClienteDAO {
 			while (rs.next()) {
 				Cliente cliente = new Cliente();
 				cliente.setId(rs.getLong("id"));
+				cliente.setNome(rs.getString("nome"));
 				cliente.setTipoCliente(rs.getString("tipoCliente"));
 				cliente.setRazaoSocial(rs.getString("razaoSocial"));
 				cliente.setEmail(rs.getString("email"));

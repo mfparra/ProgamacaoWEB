@@ -47,13 +47,11 @@ public class InsereClientePF extends HttpServlet {
 		user.setSenha(senha);
 		user.setCpf(CPF);
 		
-		
 		//Salvando do Banco
 		ClienteDAO clienteDAO = new ClienteDAO();
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		clienteDAO.insere(cliente);
 		usuarioDAO.insere(cliente, user);
-		
 		
 		// escreve a pagina que sera enviada como resposta
 		out.println("<html>");

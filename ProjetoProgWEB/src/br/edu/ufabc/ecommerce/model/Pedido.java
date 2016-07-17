@@ -1,13 +1,11 @@
 package br.edu.ufabc.ecommerce.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class Pedido {
 	private Long id;
 	private Cliente cliente;
-	
-	//o Timestamp é um tipo de dado que inclui dia e horário
-	private Timestamp dataPedido;
+	private Date dataPedido;
 
 	public Long getId() {
 		return this.id;
@@ -25,11 +23,11 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	public Timestamp getDataPedido() {
+	public Date getDataPedido() {
 		return this.dataPedido;
 	}
 
-	public void setDataPedido(Timestamp data) {
+	public void setDataPedido(Date data) {
 		this.dataPedido = data;
 	}
 }
