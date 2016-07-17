@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.edu.ufabc.ecommerce.database.ClienteBD;
+import br.edu.ufabc.ecommerce.dao.ClienteDAO;
+import br.edu.ufabc.ecommerce.dao.UsuarioDAO;
 import br.edu.ufabc.ecommerce.model.Cliente;
 import br.edu.ufabc.ecommerce.model.Usuario;
 
@@ -37,20 +38,21 @@ public class InsereClientePF extends HttpServlet {
 		cliente.setEmail(email);
 		cliente.setEndereco(endereco);
 		cliente.setTelefone(telefone);
-		cliente.setRG(RG);
-		cliente.setCPF(CPF);
+		cliente.setRg(RG);
+		cliente.setCpf(CPF);
 		
 		//Instância Usuário
 		Usuario user = new Usuario();
 		user.setLogin(login);
 		user.setSenha(senha);
-		user.setCPF(CPF);
+		user.setCpf(CPF);
 		
 		
 		//Salvando do Banco
-		ClienteBD insCli = new ClienteBD();
-		insCli.insereTabelaCliente(cliente);
-		insCli.insereTabelaUsuario(cliente, user);
+		ClienteDAO clienteDAO = new ClienteDAO();
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		clienteDAO.insere(cliente);
+		usuarioDAO.insere(cliente, user);
 		
 		
 		// escreve a pagina que sera enviada como resposta

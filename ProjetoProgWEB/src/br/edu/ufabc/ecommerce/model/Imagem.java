@@ -2,7 +2,7 @@ package br.edu.ufabc.ecommerce.model;
 
 public class Imagem {
 	private Long id;
-	private Long idProduto;
+	private Produto produto;
 	private byte[] bytes;
 
 	public Long getId() {
@@ -13,12 +13,12 @@ public class Imagem {
 		this.id = id;
 	}
 
-	public Long getIdProduto() {
-		return this.idProduto;
+	public Produto getProduto() {
+		return this.produto;
 	}
 
-	public void setIdProduto(Long idProduto) {
-		this.idProduto = idProduto;
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 
 	public byte[] getBytes() {

@@ -17,8 +17,18 @@ public class Cliente {
 		return this.tipoCliente;
 	}
 
-	public void setTipoCliente(TipoCliente tipoCliente) {
-		this.tipoCliente = tipoCliente;
+	public void setTipoCliente(String tipoCliente) {
+		switch (tipoCliente) {
+		case "F":
+			this.tipoCliente = TipoCliente.F;
+			break;
+		case "J":
+			this.tipoCliente = TipoCliente.J;
+			break;
+		default:
+			this.tipoCliente = null;
+			break;
+		}
 	}
 
 	public String getNome() {

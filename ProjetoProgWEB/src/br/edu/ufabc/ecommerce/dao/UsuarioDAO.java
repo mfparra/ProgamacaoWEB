@@ -1,4 +1,4 @@
-package br.edu.ufabc.ecommerce.database;
+package br.edu.ufabc.ecommerce.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,10 +9,10 @@ import br.edu.ufabc.ecommerce.jdbc.ConexaoBD;
 import br.edu.ufabc.ecommerce.model.Cliente;
 import br.edu.ufabc.ecommerce.model.Usuario;
 
-public class ClienteBD {
+public class UsuarioDAO {
 	private Connection connection;
 
-	public ClienteBD() {
+	public UsuarioDAO() {
 		// cria uma conexao com o BD
 		this.connection = new ConexaoBD().getConexaoBD();
 	}
@@ -25,50 +25,28 @@ public class ClienteBD {
 		}
 	}
 
-	// insere um Cliente
-	public void insereTabelaCliente(Cliente cliente) {
-		String sql_cliente = "insert into Cliente (nome,tipoCliente, email,endereco,telefone,rg,cpf,razaoSocial,cnpj) values (?,?,?,?,?,?,?,?,?)";
-		try {
-			PreparedStatement stmt = connection.prepareStatement(sql_cliente);
-			// seta valores na tabela Cliente
-			stmt.setString(1, cliente.getNome());
-			stmt.setString(2, ""+cliente.getTipoCliente());
-			stmt.setString(3, cliente.getEmail());
-			stmt.setString(4, cliente.getEndereco());
-			stmt.setString(5, cliente.getTelefone());
-			stmt.setString(6, cliente.getRG());
-			stmt.setString(7, cliente.getCPF());
-			stmt.setString(8, cliente.getRazaoSocial());
-			stmt.setString(9, cliente.getCNPJ());
-			stmt.execute();
-
-			stmt.close();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 	// Insere um Usuário
-	public void insereTabelaUsuario(Cliente cliente, Usuario user) {
-		String sql_usuario = "insert into Usuario(id_cliente, login, senha, nome, CPF) values (?,?,?,?,?)";
+	public void insere(Cliente cliente, Usuario user) {
+		String sql_usuario = "insert into Usuario(id_cliente, login, senha, nome, cpf) values (?,?,?,?,?)";
+		ClienteDAO clienteDAO = new ClienteDAO();
 		try {
 			PreparedStatement stmt;
-			// seta valores na tabela Usuario/////////
+			// seta valores na tabela Usuario//
 			// Busca pelo ID gerado pelo banco de Dados
 			String busca_id = "select id from Cliente where CPF = ? or CNPJ = ?";
 			stmt = connection.prepareStatement(busca_id);
-			stmt.setString(1, cliente.getCPF());
-			stmt.setString(2, cliente.getCNPJ());
+			stmt.setString(1, cliente.getCpf());
+			stmt.setString(2, cliente.getCnpj());
 			ResultSet rs = stmt.executeQuery();
-			user.setId_cliente(rs.getInt("id"));
+			user.setCliente(clienteDAO.buscaClientePeloID(rs.getLong("id")));
 
 			// Insere os dados na Tabela do Usuário
 			stmt = connection.prepareStatement(sql_usuario);
-			stmt.setInt(1, cliente.getId());
+			stmt.setLong(1, user.getCliente().getId());
 			stmt.setString(2, user.getLogin());
 			stmt.setString(3, user.getSenha());
 			stmt.setString(4, user.getNome());
-			stmt.setString(5, user.getCPF());
+			stmt.setString(5, user.getCpf());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -85,9 +63,9 @@ public class ClienteBD {
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, login);
 			ResultSet rs = stmt.executeQuery();
-			user.setId(rs.getInt("id"));
+			user.setId(rs.getLong("id"));
 			user.setSenha(rs.getString("senha"));
-			user.setCPF(rs.getString("CPF"));
+			user.setCpf(rs.getString("CPF"));
 
 			rs.close();
 			stmt.close();
