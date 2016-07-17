@@ -38,7 +38,7 @@ public class ClienteBD {
 			stmt.setString(5, cliente.getTelefone());
 			stmt.setString(6, cliente.getRG());
 			stmt.setString(7, cliente.getCPF());
-			stmt.setString(8, cliente.getRasaoSocial());
+			stmt.setString(8, cliente.getRazaoSocial());
 			stmt.setString(9, cliente.getCNPJ());
 			stmt.execute();
 

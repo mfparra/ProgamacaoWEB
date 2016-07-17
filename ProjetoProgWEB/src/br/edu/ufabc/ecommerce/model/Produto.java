@@ -1,54 +1,73 @@
 package br.edu.ufabc.ecommerce.model;
 
 public class Produto {
-	private int id, durBateria, tamTela;
-	private double valor;
-	private String modelo, categoria, marca, descricao;
-	public int getId() {
+	private Long id;
+	private Categoria categoria;
+	private Fabricante fabricante;
+	private Long durBateria, tamTela;
+	private Float valor;
+	private String modelo, descricao;
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getDurBateria() {
+
+	public Long getDurBateria() {
 		return durBateria;
 	}
-	public void setDurBateria(int durBateria) {
+
+	public void setDurBateria(Long durBateria) {
 		this.durBateria = durBateria;
 	}
-	public int getTamTela() {
+
+	public Long getTamTela() {
 		return tamTela;
 	}
-	public void setTamTela(int tamTela) {
+
+	public void setTamTela(Long tamTela) {
 		this.tamTela = tamTela;
 	}
+
 	public double getValor() {
 		return valor;
 	}
-	public void setValor(double valor) {
+
+	public void setValor(Float valor) {
 		this.valor = valor;
 	}
+
 	public String getModelo() {
 		return modelo;
 	}
+
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public String getCategoria() {
-		return categoria;
+
+	public Fabricante getFabricante() {
+		return fabricante;
 	}
-	public void setCategoria(String categoria) {
+
+	public void setFabricante(Fabricante fabricante) {
+		this.fabricante = fabricante;
+	}
+
+	public Categoria getCategoria() {
+		return this.categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	public String getMarca() {
-		return marca;
-	}
-	public void setMarca(String marca) {
-		this.marca = marca;
-	}
+
 	public String getDescricao() {
-		return descricao;
+		return this.descricao;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}

@@ -3,31 +3,31 @@ package br.edu.ufabc.ecommerce.model;
 import java.util.Date;
 
 public class Pedido {
-	private int id, id_produto, quantidade;
-	
-	Date data = new Date();
-	public int getId() {
-		return id;
+	private Long id;
+	private Cliente cliente;
+	private Date dataPedido;
+
+	public Long getId() {
+		return this.id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getId_produto() {
-		return id_produto;
+
+	public Cliente getIdCliente() {
+		return this.cliente;
 	}
-	public void setId_produto(int id_produto) {
-		this.id_produto = id_produto;
+
+	public void setIdProduto(Cliente cliente) {
+		this.cliente = cliente;
 	}
-	public int getQuantidade() {
-		return quantidade;
-	}
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
+
 	public Date getData() {
-		return data;
+		return this.dataPedido;
 	}
+
 	public void setData(Date data) {
-		this.data = data;
+		this.dataPedido = data;
 	}
 }

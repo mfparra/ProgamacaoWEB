@@ -1,49 +1,24 @@
 package br.edu.ufabc.ecommerce.model;
 
 public class Cliente {
-	private String nome, email, endereco, telefone, razaoSocial;
-	private int id;
-	private String RG, CPF, CNPJ;
-	private char tipoCliente;
-	
-	public String getRazaoSocial() {
-		return razaoSocial;
-	}
+	private Long id;
+	private TipoCliente tipoCliente;
+	private String nome, razaoSocial, email, endereco, cep, rg, cpf, cnpj, telefone;
 
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
-	}
-
-	public String getCNPJ() {
-		return this.CNPJ;
-	}
-
-	public void setCNPJ(String cNPJ) {
-		this.CNPJ = cNPJ;
-	}
-
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getRG() {
-		return this.RG;
+	public TipoCliente getTipoCliente() {
+		return this.tipoCliente;
 	}
 
-	public void setRG(String rG) {
-		this.RG = rG;
-	}
-
-	public String getCPF() {
-		return this.CPF;
-	}
-
-	public void setCPF(String cPF) {
-		this.CPF = cPF;
+	public void setTipoCliente(TipoCliente tipoCliente) {
+		this.tipoCliente = tipoCliente;
 	}
 
 	public String getNome() {
@@ -54,8 +29,16 @@ public class Cliente {
 		this.nome = nome;
 	}
 
+	public String getRazaoSocial() {
+		return this.razaoSocial;
+	}
+
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
+	}
+
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
@@ -70,6 +53,38 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 
+	public String getCep() {
+		return this.cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getRg() {
+		return this.rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	public String getCpf() {
+		return this.cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getCnpj() {
+		return this.cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
 	public String getTelefone() {
 		return this.telefone;
 	}
@@ -78,13 +93,4 @@ public class Cliente {
 		this.telefone = telefone;
 	}
 
-	public char getTipoCliente() {
-		return this.tipoCliente;
-	}
-
-	public void setTipoCliente(char tipoCliente) {
-		this.tipoCliente = tipoCliente;
-	}
-	
-	 
 }
