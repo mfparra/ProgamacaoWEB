@@ -152,7 +152,7 @@ public class ClienteDAO {
 		List<Cliente> clientes = new ArrayList<Cliente>();
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("select * from clientes order by nome");
+			stmt = connection.prepareStatement("select * from cliente order by nome");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Cliente cliente = new Cliente();

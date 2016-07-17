@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufabc.ecommerce.jdbc.ConexaoBD;
-import br.edu.ufabc.ecommerce.model.Fabricante;
 import br.edu.ufabc.ecommerce.model.Imagem;
 import br.edu.ufabc.ecommerce.model.Produto;
 
@@ -93,7 +92,7 @@ public class ImagemDAO {
 		}
 		return imagem;
 	}
-	
+
 	// devolve uma lista com todas as imagens de um produto
 	public List<Imagem> getLista(Produto produto) {
 		List<Imagem> imagens = new ArrayList<Imagem>();

@@ -128,7 +128,6 @@ public class ProdutoDAO {
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setDurBateria(rs.getLong("duracaoBateria"));
 				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("id_fabricante")));
-				produto.setModelo(rs.getString("modelo"));
 				produto.setTamTela(rs.getLong("tamanhoTela"));
 				produto.setValor(rs.getDouble("valor"));
 				produtos.add(produto);
@@ -158,7 +157,6 @@ public class ProdutoDAO {
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setDurBateria(rs.getLong("duracaoBateria"));
 				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("id_fabricante")));
-				produto.setModelo(rs.getString("modelo"));
 				produto.setTamTela(rs.getLong("tamanhoTela"));
 				produto.setValor(rs.getDouble("valor"));
 				produtos.add(produto);
