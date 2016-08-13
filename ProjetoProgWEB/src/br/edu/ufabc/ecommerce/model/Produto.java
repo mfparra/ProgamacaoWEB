@@ -1,4 +1,8 @@
+
 package br.edu.ufabc.ecommerce.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Produto {
 	private Long id;
@@ -7,6 +11,7 @@ public class Produto {
 	private Long durBateria, tamTela;
 	private Double valor;
 	private String modelo, descricao;
+	private List<Imagem> imagens = new ArrayList<Imagem>();
 
 	public Long getId() {
 		return id;
@@ -70,5 +75,13 @@ public class Produto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public List<Imagem> getImagens() {
+		return this.imagens;
+	}
+
+	public void setImagens(List<Imagem> imagens) {
+		this.imagens = imagens;
 	}
 }
