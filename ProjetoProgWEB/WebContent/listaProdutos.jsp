@@ -16,6 +16,7 @@
 	<jsp:useBean id="bd" class="br.edu.ufabc.ecommerce.dao.ProdutoDAO" />
 
 	<div id="lista-produtos">
+
 		<c:forEach items="${bd.lista}" var="produto">
 			<div class="produto">
 				<div class="imagem">
@@ -28,6 +29,7 @@
 				</div>
 			</div>
 		</c:forEach>
+
 		<p>
 			<a id="inserir" href="insereProduto.jsp">Novo Produto</a><br />
 		</p>
