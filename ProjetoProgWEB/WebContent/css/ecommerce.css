@@ -1,25 +1,77 @@
 @CHARSET "UTF-8";
-* { margin: 0; padding: 0; outline: 0; }
 
-body {
-    font-size: 12px;
-    line-height: 16px;
-    font-family: arial, sans-serif;
-    color: #3e3e3e;
-    background: #abd9fa url(images/body.jpg) repeat-y center 50px;
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
 }
 
-.shell { padding-top: 18px; width: 972px; margin: 0 auto; }
+body {
+	font-size: 12px;
+	line-height: 16px;
+	font-family: arial, sans-serif;
+	color: #3e3e3e;
+	background: #abd9fa url(images/body.jpg) repeat-y center 50px;
+}
 
-#navigation { width: 921px; background: url(images/navigation.png) no-repeat 0 0; }
-#navigation ul li { list-style: none; display: inline; float: left;	line-height: 52px; background: url(images/sep.png) no-repeat right 0; }
-#navigation ul li { font-family: Verdana, arial, sans-serif; font-size: 14px; font-weight: bold; }
-#navigation ul li.first { padding-left: 5px; }
-#navigation ul li a { position: relative; display: block; float: left; height: 59px; padding: 0 25px 6px 20px; color: #fff; background: url(images/nav-item.png) repeat-x 0 -5000px; text-shadow: 0 -1px #346396; }
-#navigation ul li a span.home { position: absolute; top: 0; left: -5px; display: block; width: 8px; height: 59px; background: url(images/nav-home.png) no-repeat 0 -4000px; }
-#navigation ul li a:hover { background-position: 0 0; text-decoration: none; }
-#navigation ul li a:hover span.home { background-position: 0 0; }
+.shell {
+	padding-top: 18px;
+	width: 972px;
+	margin: 0 auto;
+}
 
+#navigation {
+	width: 921px;
+	background: url(images/navigation.png) no-repeat 0 0;
+}
+
+#navigation .categoria {
+	list-style: none;
+	display: inline;
+	float: left;
+	line-height: 52px;
+	background: url(images/sep.png) no-repeat right 0;
+}
+
+#navigation .categoria {
+	font-family: Verdana, arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#navigation .categoria .first {
+	padding-left: 5px;
+}
+
+#navigation .categoria a {
+	position: relative;
+	display: block;
+	float: left;
+	height: 59px;
+	padding: 0 25px 6px 20px;
+	color: #fff;
+	background: url(images/nav-item.png) repeat-x 0 -5000px;
+	text-shadow: 0 -1px #346396;
+}
+
+#navigation .categoria a span.home {
+	position: absolute;
+	top: 0;
+	left: -5px;
+	display: block;
+	width: 8px;
+	height: 59px;
+	background: url(images/nav-home.png) no-repeat 0 -4000px;
+}
+
+#navigation .categoria a:hover {
+	background-position: 0 0;
+	text-decoration: none;
+}
+
+#navigation .categoria a:hover span.home {
+	background-position: 0 0;
+}
 
 .produto {
 	text-align: center;
@@ -40,7 +92,6 @@ body {
 	margin: 5px;
 }
 
-.produto .valor{
+.produto .valor {
 	color: red;
 }
-
