@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>Bem-vindo ao e-commerce de eletrônicos!</h3>
+	<h3>Seja bem-vindo!</h3>
 
 </body>
 </html>

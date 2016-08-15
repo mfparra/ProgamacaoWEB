@@ -1,4 +1,15 @@
 @CHARSET "UTF-8";
+* { margin: 0; padding: 0; outline: 0; }
+
+body {
+    font-size: 12px;
+    line-height: 16px;
+    font-family: arial, sans-serif;
+    color: #3e3e3e;
+    background: #abd9fa url(images/body.jpg) repeat-y center 50px;
+}
+
+.shell { padding-top: 18px; width: 972px; margin: 0 auto; }
 
 #navigation { width: 921px; background: url(images/navigation.png) no-repeat 0 0; }
 #navigation ul li { list-style: none; display: inline; float: left;	line-height: 52px; background: url(images/sep.png) no-repeat right 0; }
@@ -30,6 +41,6 @@
 }
 
 .produto .valor{
-	color: blue;
+	color: red;
 }
 
