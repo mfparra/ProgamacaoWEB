@@ -71,6 +71,7 @@ CREATE TABLE produto (
     valor double(10,2) NOT NULL,
     duracaoBateria int NULL,
     tamanhoTela int NULL,
+    promocao tinyint,
     CONSTRAINT Produto_pk PRIMARY KEY (id)
 );
 
@@ -113,6 +114,8 @@ ALTER TABLE pedido ADD CONSTRAINT Pedido_Cliente FOREIGN KEY Pedido_Cliente (id_
 -- Reference: Produto_Categoria (table: Produto)
 ALTER TABLE produto ADD CONSTRAINT Produto_Categoria FOREIGN KEY Produto_Categoria (id_categoria)
     REFERENCES categoria (id);
+
+ALTER TABLE produto ALTER COLUMN promocao SET DEFAULT 0;
 
 -- End of file.
 

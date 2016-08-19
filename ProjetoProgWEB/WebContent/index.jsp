@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>CSS Free Templates with jQuery Slider</title>
+<title>Future Store - A melhor loja do Mundo</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="css/images/favicon.ico" />
 <link rel="stylesheet" href="css/ecommerce2.css" type="text/css"
@@ -42,7 +42,7 @@
 			<!-- Header -->
 			<div id="header">
 				<h1 id="logo">
-					<a title="home" href="#">Furniture Store</a>
+					<a title="home" href="#">Future Store</a>
 				</h1>
 				<!-- Search -->
 				<div id="search">
@@ -72,14 +72,15 @@
 				<div id="slider-frame">
 					<div id="slider">
 						<ul>
-							<li><img src="css/images/chair.png"
-								alt="Orage rotating chair" />
+							<c:forEach items="${produtos.getProdutoPromocao()}" var="produto">
+							<li><img src="${imagens.getLink(produto.id)}" width="340" height="400"/>
 								<div class="caption">
-									<img src="css/images/mega-sale.png" alt="Mega Sale Sign" />
-									<p>Lorem ipsum dolor sit amet</p>
-									<a title="Order Now!" class="order-button" href="#">order
-										now</a>
+									<img src="http://i1255.photobucket.com/albums/hh638/Marcos_Freitas_Parra/promocao_1_zpsqeirxwuw.png" width="340" height="196"/>
+									<p>${produto.modelo}</p>
+									<a title="Comprar!" class="botaoComprar" href="#">Comprar</a>
 								</div></li>
+							</c:forEach>
+							
 							<li><img src="css/images/chair.png"
 								alt="Orage rotating chair" />
 								<div class="caption">
@@ -88,22 +89,7 @@
 									<a title="Order Now!" class="order-button" href="#">order
 										now</a>
 								</div></li>
-							<li><img src="css/images/chair.png"
-								alt="Orage rotating chair" />
-								<div class="caption">
-									<img src="css/images/mega-sale.png" alt="Mega Sale Sign" />
-									<p>Lorem ipsum dolor sit amet</p>
-									<a title="Order Now!" class="order-button" href="#">order
-										now</a>
-								</div></li>
-							<li><img src="css/images/chair.png"
-								alt="Orage rotating chair" />
-								<div class="caption">
-									<img src="css/images/mega-sale.png" alt="Mega Sale Sign" />
-									<p>Lorem ipsum dolor sit amet</p>
-									<a title="Order Now!" class="order-button" href="#">order
-										now</a>
-								</div></li>
+						
 						</ul>
 						<div class="jcarousel-control">
 							<a title="slide 1" href="#">1</a> <a title="slide 2" href="#">2</a>
@@ -168,8 +154,7 @@
 										<a title="More Details" href="#">
 										
 										<img
-											src="${imagens.getLink(produto.id)}" /></a> <img
-											class="top-label" src="css/images/top.png" alt="top sign" />
+											src="${imagens.getLink(produto.id)}" /></a>
 										
 										<div class="desc">
 											<p>${produto.descricao}</p>

@@ -38,7 +38,7 @@ $(function() {
     });
 
     if ($.browser.msie && $.browser.version == 6) {
-        DD_belatedPNG.fix('#wrapper-top, #wrapper-bottom, .bottom, .product img, a.order-button, #slider img, #prev, #next, .cart');
+        DD_belatedPNG.fix('#wrapper-top, #wrapper-bottom, .bottom, .product img, a.botaoComprar, #slider img, #prev, #next, .cart');
     }
 
     var width =  20 * $('.jcarousel-control a').length;    

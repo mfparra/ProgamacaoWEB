@@ -12,6 +12,17 @@ public class Produto {
 	private Double valor;
 	private String modelo, descricao;
 	private List<Imagem> imagens = new ArrayList<Imagem>();
+	private int promocao;
+
+	
+
+	public int getPromocao() {
+		return promocao;
+	}
+
+	public void setPromocao(int promocao) {
+		this.promocao = promocao;
+	}
 
 	public Long getId() {
 		return id;

@@ -168,5 +168,35 @@ public class ProdutoDAO {
 		}
 		return produtos;
 	}
+	
+	// faz a busca de produto(s) em Promocao
+	public List<Produto> getProdutoPromocao() {
+		List<Produto> produtos = new ArrayList<Produto>();
+		FabricanteDAO fabricanteDAO = new FabricanteDAO();
+		CategoriaDAO categoriaDAO = new CategoriaDAO();
+		PreparedStatement stmt;
+		try {
+			stmt = connection.prepareStatement("select * from produto where promocao = 1");
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Produto produto = new Produto();
+				produto.setId(rs.getLong("id"));
+				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(rs.getLong("id_categoria")));
+				produto.setModelo(rs.getString("modelo"));
+				produto.setDescricao(rs.getString("descricao"));
+				produto.setDurBateria(rs.getLong("duracaoBateria"));
+				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("id_fabricante")));
+				produto.setTamTela(rs.getLong("tamanhoTela"));
+				produto.setValor(rs.getDouble("valor"));
+				produto.setPromocao(rs.getInt("promocao"));
+				produtos.add(produto);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return produtos;
+	}
 
 }

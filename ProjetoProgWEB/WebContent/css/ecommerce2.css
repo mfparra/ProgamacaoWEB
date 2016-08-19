@@ -38,15 +38,15 @@ textarea { overflow: auto; }
 
 #header { position: relative; height: 99%; padding: 6px 0 26px 17px; }
 
-#logo { width: 293px; font-size: 0; line-height: 0; }
-#logo a { display: block; width: 293px; height: 67px; background: url(images/logo.png) no-repeat 0 0; text-indent: -4000px; }
+#logo { width: 400px; font-size: 0; line-height: 0; }
+#logo a { display: block; width: 400px; height: 90px; background: url(images/logo.jpg) no-repeat 0 0; text-indent: -4000px; }
 
 #search { position: absolute; top: 52px; right: 0; width: 190px; background: url(images/search.png) no-repeat 0 0; }
 #search .field { display: inline; float: left; padding: 8px 0 9px 15px; background: none; border: 0; width: 145px; }
 #search .field { font-family: Tahoma, arial, sans-serif; font-size: 11px; color: #959595; line-height: 14px; }
 #search .submit-button { display: inline; float: right; width: 30px; height: 30px; background: none; border: 0; cursor: pointer; }
 
-#navigation { width: 921px; background: url(images/navigation.png) no-repeat 0 0; }
+#navigation { width: 1200px; background: url(images/navigation.png) no-repeat 0 0; }
 #navigation ul li { list-style: none; display: inline; float: left;	line-height: 52px; background: url(images/sep.png) no-repeat right 0; }
 #navigation ul li { font-family: Verdana, arial, sans-serif; font-size: 14px; font-weight: bold; }
 #navigation ul li.first { padding-left: 5px; }
@@ -60,7 +60,8 @@ textarea { overflow: auto; }
 #slider-frame { position: relative; padding-bottom: 37px; width: 921px; height: 449px; background: url(images/slider-frame.jpg) no-repeat 0 0; }
 #slider { position: relative; display: inline; float: left; width: 920px; }
 
-a.order-button { display: block; margin: 28px 0 0 13px; width: 186px; height: 81px; background: url(images/order-button.png) no-repeat 0 0; text-indent: -4000px; cursor: pointer; z-index: 50; }
+
+a.botaoComprar { display: block; margin: 28px 0 0 13px; width: 186px; height: 81px; background: url(http://i1255.photobucket.com/albums/hh638/Marcos_Freitas_Parra/botao_laranja_zps4nvx1m1p.png) no-repeat 0 0; text-indent: -4000px; cursor: pointer; z-index: 50; }
 
 .jcarousel-container { position: relative; padding: 37px 0 0 0; width: 920px; height: 356px; }
 .jcarousel-clip { position: relative; overflow: hidden; width: 920px; height: 356px; }
