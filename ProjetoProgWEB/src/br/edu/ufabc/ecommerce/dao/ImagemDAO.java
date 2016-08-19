@@ -35,7 +35,7 @@ public class ImagemDAO {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			// seta valores na tabela Produto
 			stmt.setLong(1, imagem.getProduto().getId());
-			stmt.setBytes(2, imagem.getBytes());
+			stmt.setString(2, imagem.getLink());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -60,7 +60,7 @@ public class ImagemDAO {
 		String sql = "update imagem set imagem = ? where id = ?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setBytes(1, imagem.getBytes());
+			stmt.setString(1, imagem.getLink());
 			stmt.setLong(2, imagem.getId());
 			stmt.execute();
 			stmt.close();
@@ -82,7 +82,7 @@ public class ImagemDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				imagem.setId(id);
-				imagem.setBytes(rs.getBytes("imagem"));
+				imagem.setLink(rs.getString("imagem"));
 				imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
 			}
 			rs.close();
@@ -106,7 +106,7 @@ public class ImagemDAO {
 				Imagem imagem = new Imagem();
 				imagem.setId(rs.getLong("id"));
 				imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
-				imagem.setBytes(rs.getBytes("imagem"));
+				imagem.setLink(rs.getString("imagem"));
 				imagens.add(imagem);
 			}
 			rs.close();
@@ -116,5 +116,27 @@ public class ImagemDAO {
 		}
 		return imagens;
 	}
+	// faz a busca de imagem pelo ID
+		public String getLink(Long id) {
+			Imagem imagem = new Imagem();
+			ProdutoDAO produtoDAO = new ProdutoDAO();
+			PreparedStatement stmt;
+			String sql = "select * from imagem where id = ?";
+			try {
+				stmt = connection.prepareStatement(sql);
+				stmt.setLong(1, id);
+				ResultSet rs = stmt.executeQuery();
+				while (rs.next()) {
+					imagem.setId(id);
+					imagem.setLink(rs.getString("imagem"));
+					imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
+				}
+				rs.close();
+				stmt.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+			return imagem.getLink();
+		}
 
 }

@@ -3,7 +3,7 @@ package br.edu.ufabc.ecommerce.model;
 public class Imagem {
 	private Long id;
 	private Produto produto;
-	private byte[] bytes;
+	private String link;
 
 	public Long getId() {
 		return this.id;
@@ -21,12 +21,16 @@ public class Imagem {
 		this.produto = produto;
 	}
 
-	public byte[] getBytes() {
-		return this.bytes;
+	public String getLink() {
+		return link;
 	}
 
-	public void setBytes(byte[] bytes) {
-		this.bytes = bytes;
+	public void setLink(String link) {
+		this.link = link;
 	}
+
+	
+
+	
 
 }

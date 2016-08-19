@@ -24,6 +24,8 @@
 			class="br.edu.ufabc.ecommerce.dao.ProdutoDAO" />
 		<jsp:useBean id="categorias"
 			class="br.edu.ufabc.ecommerce.dao.CategoriaDAO" />
+		<jsp:useBean id="imagens"
+			class="br.edu.ufabc.ecommerce.dao.ImagemDAO" />
 		<div id="top-navigation">
 			<a title="My Account" href="#">Minha conta</a><a class="cart"
 				title="Shopping Cart" href="#">Carrinho de compras</a><a
@@ -163,9 +165,12 @@
 							<c:forEach items="${produtos.lista}" var="produto">
 								<div class="product-holder">
 									<div class="product">
-										<a title="More Details" href="#"><img
-											src="css/images/1.jpg" alt="Yin Yang shaped bookshelf" /></a> <img
+										<a title="More Details" href="#">
+										
+										<img
+											src="${imagens.getLink(produto.id)}" /></a> <img
 											class="top-label" src="css/images/top.png" alt="top sign" />
+										
 										<div class="desc">
 											<p>${produto.descricao}</p>
 											<p class="price">
