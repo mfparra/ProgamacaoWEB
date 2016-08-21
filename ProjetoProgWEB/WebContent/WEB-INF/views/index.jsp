@@ -7,16 +7,21 @@
 <head>
 <title>Future Store - A melhor loja do Mundo</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<link rel="shortcut icon" href="css/images/favicon.ico" />
-<link rel="stylesheet" href="css/ecommerce2.css" type="text/css"
-	media="all" />
-<link rel="stylesheet" href="css/ecommerce.css" type="text/css"
+<link rel="shortcut icon" href="resources/css/images/favicon.ico" />
+<link rel="stylesheet" href="resources/css/ecommerce2.css"
+	type="text/css" media="all" />
+<link rel="stylesheet" href="resources/css/ecommerce.css" type="text/css"
 	media="all" />
 
-<script src="js/jquery-1.7.min.js" type="text/javascript"></script>
-<script src="js/jquery.jcarousel.js" type="text/javascript"></script>
-<script src="js/DD_belatedPNG-min.js" type="text/javascript"></script>
-<script src="js/functions.js" type="text/javascript"></script>
+<script src="resources/js/jquery-1.7.min.js" type="text/javascript"></script>
+<script src="resources/js/jquery.jcarousel.js" type="text/javascript"></script>
+<script src="resources/js/DD_belatedPNG-min.js" type="text/javascript"></script>
+<script src="resources/js/functions.js" type="text/javascript"></script>
+<script>
+	function loadWindow() {
+		window.open("detalhes");
+	}
+</script>
 </head>
 <body>
 	<div class="shell">
@@ -24,8 +29,7 @@
 			class="br.edu.ufabc.ecommerce.dao.ProdutoDAO" />
 		<jsp:useBean id="categorias"
 			class="br.edu.ufabc.ecommerce.dao.CategoriaDAO" />
-		<jsp:useBean id="imagens"
-			class="br.edu.ufabc.ecommerce.dao.ImagemDAO" />
+		<jsp:useBean id="imagens" class="br.edu.ufabc.ecommerce.dao.ImagemDAO" />
 		<div id="top-navigation">
 			<a title="My Account" href="#">Minha conta</a><a class="cart"
 				title="Shopping Cart" href="#">Carrinho de compras</a><a
@@ -73,14 +77,17 @@
 					<div id="slider">
 						<ul>
 							<c:forEach items="${produtos.getProdutoPromocao()}" var="produto">
-							<li><img src="${imagens.getLink(produto.id)}" width="340" height="400"/>
-								<div class="caption">
-									<img src="http://i1255.photobucket.com/albums/hh638/Marcos_Freitas_Parra/promocao_1_zpsqeirxwuw.png" width="340" height="196"/>
-									<p>${produto.modelo}</p>
-									<a title="Comprar!" class="botaoComprar" href="#">Comprar</a>
-								</div></li>
+								<li><img src="${imagens.getLink(produto.id)}" width="340"
+									height="400" />
+									<div class="caption">
+										<img
+											src="http://i1255.photobucket.com/albums/hh638/Marcos_Freitas_Parra/promocao_1_zpsqeirxwuw.png"
+											width="340" height="196" />
+										<p>${produto.modelo}</p>
+										<a title="Comprar!" class="botaoComprar" href="#">Comprar</a>
+									</div></li>
 							</c:forEach>
-							
+
 							<li><img src="css/images/chair.png"
 								alt="Orage rotating chair" />
 								<div class="caption">
@@ -89,7 +96,7 @@
 									<a title="Order Now!" class="order-button" href="#">order
 										now</a>
 								</div></li>
-						
+
 						</ul>
 						<div class="jcarousel-control">
 							<a title="slide 1" href="#">1</a> <a title="slide 2" href="#">2</a>
@@ -149,14 +156,10 @@
 						</div>
 						<div class="row">
 							<c:forEach items="${produtos.lista}" var="produto">
-							
 								<div class="product-holder">
-									<div class="product">
-										<a title="More Details" href="#">
-										
-										<img
-											src="${imagens.getLink(produto.id)}" /></a>
-										
+									<div class="product" onclick="loadWindow()">
+
+										<img src="${imagens.getLink(produto.id)}">
 										<div class="desc">
 											<p>${produto.modelo}</p>
 											<p class="price">
