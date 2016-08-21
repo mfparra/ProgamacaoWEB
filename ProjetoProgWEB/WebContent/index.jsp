@@ -157,7 +157,7 @@
 											src="${imagens.getLink(produto.id)}" /></a>
 										
 										<div class="desc">
-											<p>${produto.descricao}</p>
+											<p>${produto.modelo}</p>
 											<p class="price">
 												<fmt:setLocale value="pt_BR" />
 												<fmt:formatNumber type="currency" value="${produto.valor}" />
