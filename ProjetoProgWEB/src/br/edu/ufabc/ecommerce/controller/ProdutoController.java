@@ -9,26 +9,24 @@ import br.edu.ufabc.ecommerce.model.Produto;
 
 @Controller
 public class ProdutoController {
-
 	private Produto produtoSelecionado;
-    
-    private ProdutoDAO produtoDAO;
+
+	private ProdutoDAO produtoDAO;
 
 	@RequestMapping("/")
 	public String home() {
 		return "index";
 	}
 
-	@RequestMapping("index")
-	public String execute() {
-		return "insereProduto";
-	}
+//	@Override
+//	public String execute() throws Exception {
+//		 = this.jogoService.listarTodos();
+//		return "jsp/jogos_lista";
+//	}
 
-	
-	@RequestMapping(value="detalhes", method=RequestMethod.GET)
-	public String produtoDetalhes() {
-		//this.produtoSelecionado = this.produtoDAO.buscaProdutoPeloID(this.produtoSelecionado.getId());
-		return "jsp/produto_detalhes";
+	public String detalhes() throws Exception {
+//		this.= this.jogoService.recuperarComListas(this.jogoSelecionado.getId());
+		return "produto_detalhes";
 	}
 
 }

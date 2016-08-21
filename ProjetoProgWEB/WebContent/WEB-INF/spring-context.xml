@@ -10,6 +10,7 @@
 	http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 	<mvc:annotation-driven />
 	<context:component-scan base-package="br.edu.ufabc.ecommerce.*" />
+	
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

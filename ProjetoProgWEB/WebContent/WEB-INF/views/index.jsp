@@ -156,7 +156,9 @@
 						</div>
 						<div class="row">
 							<c:forEach items="${produtos.lista}" var="produto">
-								<a href="${pageContext.request.contextPath}/detalhes">
+								<a
+									href="${app}/Produto!detalhes.action?produtoSelecionado.id=${produto.id}">
+
 									<div class="product-holder">
 										<div class="product">
 											<img src="${imagens.getLink(produto.id)}">
