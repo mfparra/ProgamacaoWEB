@@ -10,8 +10,8 @@
 <link rel="shortcut icon" href="resources/css/images/favicon.ico" />
 <link rel="stylesheet" href="resources/css/ecommerce2.css"
 	type="text/css" media="all" />
-<link rel="stylesheet" href="resources/css/ecommerce.css" type="text/css"
-	media="all" />
+<link rel="stylesheet" href="resources/css/ecommerce.css"
+	type="text/css" media="all" />
 
 <script src="resources/js/jquery-1.7.min.js" type="text/javascript"></script>
 <script src="resources/js/jquery.jcarousel.js" type="text/javascript"></script>
@@ -156,21 +156,22 @@
 						</div>
 						<div class="row">
 							<c:forEach items="${produtos.lista}" var="produto">
-								<div class="product-holder">
-									<div class="product" onclick="loadWindow()">
-
-										<img src="${imagens.getLink(produto.id)}">
-										<div class="desc">
-											<p>${produto.modelo}</p>
-											<p class="price">
-												<fmt:setLocale value="pt_BR" />
-												<fmt:formatNumber type="currency" value="${produto.valor}" />
-											</p>
+								<a href="${pageContext.request.contextPath}/detalhes">
+									<div class="product-holder">
+										<div class="product">
+											<img src="${imagens.getLink(produto.id)}">
+											<div class="desc">
+												<p>${produto.modelo}</p>
+												<p class="price">
+													<fmt:setLocale value="pt_BR" />
+													<fmt:formatNumber type="currency" value="${produto.valor}" />
+												</p>
+											</div>
+											<div class="bottom"></div>
 										</div>
-										<div class="bottom"></div>
 									</div>
-									<div class="product-bottom"></div>
-								</div>
+								</a>
+								<div class="product-bottom"></div>
 							</c:forEach>
 						</div>
 						<div class="cl"></div>
