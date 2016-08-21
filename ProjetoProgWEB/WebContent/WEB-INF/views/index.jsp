@@ -2,21 +2,20 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Future Store - A melhor loja do Mundo</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="resources/css/images/favicon.ico" />
-<link rel="stylesheet" href="resources/css/ecommerce2.css"
-	type="text/css" media="all" />
-<link rel="stylesheet" href="resources/css/ecommerce.css"
-	type="text/css" media="all" />
 
-<script src="resources/js/jquery-1.7.min.js" type="text/javascript"></script>
-<script src="resources/js/jquery.jcarousel.js" type="text/javascript"></script>
-<script src="resources/js/DD_belatedPNG-min.js" type="text/javascript"></script>
-<script src="resources/js/functions.js" type="text/javascript"></script>
+<spring:url value="/resources/css/ecommerce.css" var="crunchifyCSS" />
+<spring:url value="/resources/css/ecommerce2.css" var="crunchifyCSS2" />
+<link href="${crunchifyCSS}" rel="stylesheet" />
+<link href="${crunchifyCSS2}" rel="stylesheet" />
+
 <script>
 	function loadWindow() {
 		window.open("detalhes");
