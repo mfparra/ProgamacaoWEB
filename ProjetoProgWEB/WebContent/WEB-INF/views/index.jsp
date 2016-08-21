@@ -156,8 +156,7 @@
 						</div>
 						<div class="row">
 							<c:forEach items="${produtos.lista}" var="produto">
-								<a
-									href="${app}/Produto!detalhes.action?produtoSelecionado.id=${produto.id}">
+								<a href="${pageContext.request.contextPath}/detalhes">
 
 									<div class="product-holder">
 										<div class="product">
