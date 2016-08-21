@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Future Store</title>
 </head>
 <body>
 	<h3>Seja bem-vindo!</h3>
-
 </body>
 </html>

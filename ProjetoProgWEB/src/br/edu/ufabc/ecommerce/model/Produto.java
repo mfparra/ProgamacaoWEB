@@ -14,8 +14,6 @@ public class Produto {
 	private List<Imagem> imagens = new ArrayList<Imagem>();
 	private int promocao;
 
-	
-
 	public int getPromocao() {
 		return promocao;
 	}
@@ -95,4 +93,12 @@ public class Produto {
 	public void setImagens(List<Imagem> imagens) {
 		this.imagens = imagens;
 	}
+
+	public String getImagemPrincipal() {
+		List<Imagem> imagens = this.getImagens();
+		if (!imagens.isEmpty())
+			return imagens.get(0).getLink();
+		return "http://i1070.photobucket.com/albums/u495/Tulio_Carreira/imageNotAvailable_medium_zpsvgaov7go.jpg";
+	}
+
 }

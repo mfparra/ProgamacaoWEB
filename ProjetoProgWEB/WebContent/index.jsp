@@ -149,6 +149,7 @@
 						</div>
 						<div class="row">
 							<c:forEach items="${produtos.lista}" var="produto">
+							
 								<div class="product-holder">
 									<div class="product">
 										<a title="More Details" href="#">

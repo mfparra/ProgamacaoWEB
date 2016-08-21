@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ufabc.ecommerce.jdbc.ConexaoBD;
+import br.edu.ufabc.ecommerce.model.Imagem;
 import br.edu.ufabc.ecommerce.model.Produto;
 
 public class ProdutoDAO {
@@ -168,7 +169,7 @@ public class ProdutoDAO {
 		}
 		return produtos;
 	}
-	
+
 	// faz a busca de produto(s) em Promocao
 	public List<Produto> getProdutoPromocao() {
 		List<Produto> produtos = new ArrayList<Produto>();
@@ -198,5 +199,4 @@ public class ProdutoDAO {
 		}
 		return produtos;
 	}
-
 }

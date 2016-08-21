@@ -92,42 +92,43 @@ public class ImagemDAO {
 		}
 		return imagem;
 	}
-
+	
 	// devolve uma lista com todas as imagens de um produto
-	public List<Imagem> getLista(Produto produto) {
-		List<Imagem> imagens = new ArrayList<Imagem>();
-		ProdutoDAO produtoDAO = new ProdutoDAO();
-		PreparedStatement stmt;
-		try {
-			stmt = connection.prepareStatement("select * from imagem where id_produto = ?");
-			stmt.setLong(1, produto.getId());
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				Imagem imagem = new Imagem();
-				imagem.setId(rs.getLong("id"));
-				imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
-				imagem.setLink(rs.getString("imagem"));
-				imagens.add(imagem);
+		public List<Imagem> getImagens(Produto produto) {
+			List<Imagem> imagens = new ArrayList<Imagem>();
+			ProdutoDAO produtoDAO = new ProdutoDAO();
+			PreparedStatement stmt;
+			try {
+				stmt = connection.prepareStatement("select * from imagem where id_produto = ?");
+				stmt.setLong(1, produto.getId());
+				ResultSet rs = stmt.executeQuery();
+				while (rs.next()) {
+					Imagem imagem = new Imagem();
+					imagem.setId(rs.getLong("id"));
+					imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
+					imagem.setLink(rs.getString("imagem"));
+					imagens.add(imagem);
+				}
+				rs.close();
+				stmt.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
 			}
-			rs.close();
-			stmt.close();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
+			return imagens;
 		}
-		return imagens;
-	}
+	
 	// faz a busca de imagem pelo ID
-		public String getLink(Long id) {
+		public String getLink(Long idProduto) {
 			Imagem imagem = new Imagem();
 			ProdutoDAO produtoDAO = new ProdutoDAO();
 			PreparedStatement stmt;
-			String sql = "select * from imagem where id = ?";
+			String sql = "select * from imagem where id_produto = ? order by id desc";
 			try {
 				stmt = connection.prepareStatement(sql);
-				stmt.setLong(1, id);
+				stmt.setLong(1, idProduto);
 				ResultSet rs = stmt.executeQuery();
 				while (rs.next()) {
-					imagem.setId(id);
+					imagem.setId(idProduto);
 					imagem.setLink(rs.getString("imagem"));
 					imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
 				}
