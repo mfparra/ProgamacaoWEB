@@ -12,6 +12,7 @@ public class Produto {
 	private Double valor;
 	private String modelo, descricao;
 	private List<Imagem> imagens = new ArrayList<Imagem>();
+
 	private int promocao;
 
 	public int getPromocao() {

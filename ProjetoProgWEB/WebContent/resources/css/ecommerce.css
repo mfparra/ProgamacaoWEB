@@ -1,5 +1,3 @@
-@CHARSET "UTF-8";
-
 * { margin: 0; padding: 0; outline: 0; }
 
 body {
@@ -40,15 +38,15 @@ textarea { overflow: auto; }
 
 #header { position: relative; height: 99%; padding: 6px 0 26px 17px; }
 
-#logo { width: 400px; font-size: 0; line-height: 0; }
-#logo a { display: block; width: 400px; height: 90px; background: url(images/logo.jpg) no-repeat 0 0; text-indent: -4000px; }
+#logo { width: 293px; font-size: 0; line-height: 0; }
+#logo a { display: block; width: 293px; height: 67px; background: url(images/logo.png) no-repeat 0 0; text-indent: -4000px; }
 
 #search { position: absolute; top: 52px; right: 0; width: 190px; background: url(images/search.png) no-repeat 0 0; }
 #search .field { display: inline; float: left; padding: 8px 0 9px 15px; background: none; border: 0; width: 145px; }
 #search .field { font-family: Tahoma, arial, sans-serif; font-size: 11px; color: #959595; line-height: 14px; }
 #search .submit-button { display: inline; float: right; width: 30px; height: 30px; background: none; border: 0; cursor: pointer; }
 
-#navigation { width: 1200px; background: url(images/navigation.png) no-repeat 0 0; }
+#navigation { width: 921px; background: url(images/navigation.png) no-repeat 0 0; }
 #navigation ul li { list-style: none; display: inline; float: left;	line-height: 52px; background: url(images/sep.png) no-repeat right 0; }
 #navigation ul li { font-family: Verdana, arial, sans-serif; font-size: 14px; font-weight: bold; }
 #navigation ul li.first { padding-left: 5px; }
@@ -62,8 +60,7 @@ textarea { overflow: auto; }
 #slider-frame { position: relative; padding-bottom: 37px; width: 921px; height: 449px; background: url(images/slider-frame.jpg) no-repeat 0 0; }
 #slider { position: relative; display: inline; float: left; width: 920px; }
 
-
-a.botaoComprar { display: block; margin: 28px 0 0 13px; width: 186px; height: 81px; background: url(http://i1255.photobucket.com/albums/hh638/Marcos_Freitas_Parra/botao_laranja_zps4nvx1m1p.png) no-repeat 0 0; text-indent: -4000px; cursor: pointer; z-index: 50; }
+a.order-button { display: block; margin: 28px 0 0 13px; width: 186px; height: 81px; background: url(images/order-button.png) no-repeat 0 0; text-indent: -4000px; cursor: pointer; z-index: 50; }
 
 .jcarousel-container { position: relative; padding: 37px 0 0 0; width: 920px; height: 356px; }
 .jcarousel-clip { position: relative; overflow: hidden; width: 920px; height: 356px; }
@@ -96,168 +93,30 @@ a.botaoComprar { display: block; margin: 28px 0 0 13px; width: 186px; height: 81
 
 #content { display: inline; float: right; width: 668px; }
 
-.products { padding-bottom: 24px; }
-.products .title { margin: 0 0 27px 16px; width: 632px; }
-.products .title a.title-link { position: absolute; top: 15px; right: 2px; color: #00a7e7; text-decoration: underline; }
-.products .title a.title-link:hover { text-decoration: none; }
-.products .row { height: 298px; }
-.products .active { background-position: 0 0; }
+.produtos { padding-bottom: 24px; }
+.produtos .title { margin: 0 0 27px 16px; width: 632px; }
+.produtos .title a.title-link { position: absolute; top: 15px; right: 2px; color: #00a7e7; text-decoration: underline; }
+.produtos .title a.title-link:hover { text-decoration: none; }
+.produtos .row { height: 298px; }
+.produtos .active { background-position: 0 0; }
 .best-sellers { padding-bottom: 0; }
 
-.product-holder { display: inline; float: left; padding: 0 8px; width: 206px; }
-.product { position: relative; padding: 5px 0 0 6px; background: url(images/product-active.png) repeat-y -4000px 0; cursor: pointer; }
-.product-bottom { height: 12px; line-height: 0; font-size: 0; background: url(images/product-bottom.png) no-repeat -4000px 0; }
-.product img { display: block; width: 190px; height: 193px; border: solid 1px #bababa; }
+.produto-holder { display: inline; float: left; padding: 0 8px; width: 206px; }
+.produto { position: relative; padding: 5px 0 0 6px; background: url(images/produto-active.png) repeat-y -4000px 0; cursor: pointer; }
+.produto-bottom { height: 12px; line-height: 0; font-size: 0; background: url(images/produto-bottom.png) no-repeat -4000px 0; }
+.produto img { display: block; width: 190px; height: 193px; border: solid 1px #bababa; }
 
-.product .desc { padding: 8px 0 0 10px; width: 182px; background: #ff9600 url(images/desc.png) repeat-x 0 0; }
-.product .desc p { font-weight: bold; }
-.product .desc p.price { color: #fff; font-size: 18px; }
-.product .desc span.dollar { font-size: 12px; }
-.product .desc strike { color: #595959; font-style: italic; }
-.product .bottom { height: 11px; line-height: 0; font-size: 0; background: url(images/bottom-desc.png) no-repeat 0 bottom;  }
-.product img.top-label { position: absolute; top: 7px; left: 8px; display: block; width: 88px; height: 70px; border: 0; }
-.product img.new-label { position: absolute; top: 7px; right: 10px; display: block; width: 88px; height: 70px; border: 0; } 
+.produto .descricao { padding: 8px 0 0 10px; width: 182px; background: #ff9600 url(images/desc.png) repeat-x 0 0; }
+.produto .descricao  p { font-weight: bold; }
+.produto .descricao  p.preco { color: #fff; font-size: 18px; }
+.produto .descricao  span.dollar { font-size: 12px; }
+.produto .descricao  strike { color: #595959; font-style: italic; }
+.produto .bottom { height: 11px; line-height: 0; font-size: 0; background: url(images/bottom-desc.png) no-repeat 0 bottom;  }
+.produto img.top-label { position: absolute; top: 7px; left: 8px; display: block; width: 88px; height: 70px; border: 0; }
+.produto img.new-label { position: absolute; top: 7px; right: 10px; display: block; width: 88px; height: 70px; border: 0; } 
 
 #footer { padding: 10px 0 15px 50px; }
 #footer p { font-family: Tahoma, arial, helvetica, sans-serif; font-size: 11px; line-height: 18px; color: #c8e59f; }
 #footer p a { color: #fff; }
 #footer p span { padding: 0 3px 0 4px; }
 #footer .author { float: right; }
-
-* {
-	margin: 0;
-	padding: 0;
-	outline: 0;
-}
-
-body {
-	font-size: 12px;
-	line-height: 16px;
-	font-family: arial, sans-serif;
-	color: #3e3e3e;
-	background: #abd9fa url(images/body.jpg) repeat-y center 50px;
-}
-
-.shell {
-	padding-top: 18px;
-	width: 972px;
-	margin: 0 auto;
-}
-
-#navigation {
-	width: 921px;
-	background: url(images/navigation.png) no-repeat 0 0;
-}
-
-#navigation .categoria {
-	list-style: none;
-	display: inline;
-	float: left;
-	line-height: 52px;
-	background: url(images/sep.png) no-repeat right 0;
-}
-
-#navigation .categoria {
-	font-family: Verdana, arial, sans-serif;
-	font-size: 14px;
-	font-weight: bold;
-}
-
-#navigation .categoria .first {
-	padding-left: 5px;
-}
-
-#navigation .categoria a {
-	position: relative;
-	display: block;
-	float: left;
-	height: 59px;
-	padding: 0 25px 6px 20px;
-	color: #fff;
-	background: url(images/nav-item.png) repeat-x 0 -5000px;
-	text-shadow: 0 -1px #346396;
-}
-
-#navigation .categoria a span.home {
-	position: absolute;
-	top: 0;
-	left: -5px;
-	display: block;
-	width: 8px;
-	height: 59px;
-	background: url(images/nav-home.png) no-repeat 0 -4000px;
-}
-
-#navigation .categoria a:hover {
-	background-position: 0 0;
-	text-decoration: none;
-}
-
-#navigation .categoria a:hover span.home {
-	background-position: 0 0;
-}
-
-.produto {
-	text-align: center;
-	width: 200px;
-	height: 200px;
-	display: inline-block;
-	vertical-align: top;
-	margin: 20px;
-	padding: 10px;
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.produto .imagem {
-	width: 100px;
-}
-
-.produto .descricao, .produto .valor {
-	margin: 5px;
-}
-
-.produto .valor {
-	color: red;
-}
-
-
-#produto-detalhes > * {
-	margin-right: 30px;
-}
-
-#produto-detalhes .images {
-	width: 300px;	
-}
-
-#produto-detalhes .main-image {
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-	margin-bottom: 10px;
-}
-
-#produto-detalhes .tiny-images > *{
-	margin: 12px;
-	display: inline-block;
-}
-
-#produto-detalhes  .descricao {
-	margin-bottom: 30px;
-}
-
-#produto-detalhes  .preco {
-	margin-bottom: 30px;
-	font-size: 30px;
-}
-
-#produto-detalhes  .plataforma {
-	margin-bottom: 30px;
-}
-
-#produto-detalhes  .quantidade {
-	margin-bottom: 30px;
-}
-
-#produto-detalhes  .quantidade input{
-	border: 1px solid #ccc;
-	width: 60px;
-	font-size: 16px;
-}

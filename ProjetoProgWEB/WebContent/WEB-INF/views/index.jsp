@@ -29,6 +29,9 @@
 			class="br.edu.ufabc.ecommerce.dao.ProdutoDAO" />
 		<jsp:useBean id="categorias"
 			class="br.edu.ufabc.ecommerce.dao.CategoriaDAO" />
+		<input type="hidden" name="categoriaSelecionada"
+			value="${categoriaSelecionada}" />
+
 		<jsp:useBean id="imagens" class="br.edu.ufabc.ecommerce.dao.ImagemDAO" />
 		<div id="top-navigation">
 			<a title="My Account" href="#">Minha conta</a><a class="cart"
@@ -62,203 +65,166 @@
 			<!-- END Header -->
 			<!-- Navigation -->
 			<div id="navigation">
-				<c:forEach items="${categorias.lista}" var="categoria">
-					<div class="categoria">
-						<a href="#">${categoria.nome}</a>
-					</div>
-				</c:forEach>
-				<div class="cl"></div>
+				<ul>
+					<c:forEach items="${categorias.lista}" var="categoria">
+						<li><a
+							href="${pageContext.request.contextPath}/index?idCategoria=${categoria.id}">${categoria.nome}</a></li>
+					</c:forEach>
+				</ul>
 			</div>
-			<!-- END Navigation -->
-			<!-- Main -->
-			<div id="main">
-				<!-- Slider -->
-				<div id="slider-frame">
-					<div id="slider">
-						<ul>
-							<c:forEach items="${produtos.getProdutoPromocao()}" var="produto">
-								<li><img src="${imagens.getLink(produto.id)}" width="340"
-									height="400" />
-									<div class="caption">
-										<img
-											src="http://i1255.photobucket.com/albums/hh638/Marcos_Freitas_Parra/promocao_1_zpsqeirxwuw.png"
-											width="340" height="196" />
-										<p>${produto.modelo}</p>
-										<a title="Comprar!" class="botaoComprar" href="#">Comprar</a>
-									</div></li>
-							</c:forEach>
-
-							<li><img src="css/images/chair.png"
-								alt="Orage rotating chair" />
+			<div class="cl"></div>
+		</div>
+		<!-- END Navigation -->
+		<!-- Main -->
+		<div id="main">
+			<!-- Slider -->
+			<div id="slider-frame">
+				<div id="slider">
+					<ul>
+						<c:forEach items="${produtos.getProdutoPromocao()}" var="produto">
+							<li><img src="${imagens.getLink(produto.id)}" width="340"
+								height="400" />
 								<div class="caption">
-									<img src="css/images/mega-sale.png" alt="Mega Sale Sign" />
-									<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-									<a title="Order Now!" class="order-button" href="#">order
-										now</a>
+									<img
+										src="http://i1255.photobucket.com/albums/hh638/Marcos_Freitas_Parra/promocao_1_zpsqeirxwuw.png"
+										width="340" height="196" />
+									<p>${produto.modelo}</p>
+									<a title="Comprar!" class="botaoComprar" href="#">Comprar</a>
 								</div></li>
+						</c:forEach>
 
-						</ul>
-						<div class="jcarousel-control">
-							<a title="slide 1" href="#">1</a> <a title="slide 2" href="#">2</a>
-							<a title="slide 3" href="#">3</a> <a title="slide 4" href="#">4</a>
-						</div>
-						<div class="slider-arrows">
-							<a title="Next Slide" id="next" href="#">next</a> <a
-								title="Previous Slide" id="prev" href="#">prev</a>
-						</div>
-					</div>
-				</div>
-				<!-- END Slider -->
-				<!-- Sidebar -->
-				<div id="sidebar">
-					<div class="box">
-						<div class="title">
-							<h2>Categorias</h2>
-							<img class="bullet" src="css/images/bullet.png"
-								alt="small grey bullet" />
-						</div>
-						<ul>
-							<c:forEach items="${categorias.lista}" var="categoria">
-								<li><a href="#">${categoria.nome}</a></li>
-							</c:forEach>
-						</ul>
-					</div>
-					<div class="box">
-						<div class="title">
-							<h2>Follow Us</h2>
-							<img class="bullet" src="css/images/bullet.png"
-								alt="small grey bullet" />
-						</div>
-						<ul class="socials">
-							<li><a title="Facebook" href="#"><img
-									src="css/images/fb.png" alt="facebook icon" />facebook</a></li>
-							<li><a title="Tweeter" href="#"><img
-									src="css/images/tweet.png" alt="tweeter icon" />twitter</a></li>
-							<li><a title="Behance" href="#"><img
-									src="css/images/behance.png" alt="behance icon" />behance</a></li>
-							<li><a title="Blogger" href="#"><img
-									src="css/images/blogger.png" alt="blogger icon" />blogger</a></li>
-							<li><a title="Digg" href="#"><img
-									src="css/images/digg.png" alt="digg icon" />digg</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- END Sidebar -->
-				<!-- Content -->
-				<div id="content">
-					<!-- Products -->
-					<div class="products">
-						<div class="title">
-							<h2>Todos os Produtos</h2>
-							<a class="title-link" title="More Products" href="#">View
-								More</a> <img class="bullet" src="css/images/bullet.png"
-								alt="small grey bullet" />
-						</div>
-						<div class="row">
-							<c:forEach items="${produtos.lista}" var="produto">
-								<a
-									href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
+						<li><img src="css/images/chair.png"
+							alt="Orage rotating chair" />
+							<div class="caption">
+								<img src="css/images/mega-sale.png" alt="Mega Sale Sign" />
+								<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+								<a title="Order Now!" class="order-button" href="#">order
+									now</a>
+							</div></li>
 
-									<div class="product-holder">
-										<div class="product">
-											<img src="${imagens.getLink(produto.id)}">
-											<div class="desc">
-												<p>${produto.modelo}</p>
-												<p class="price">
-													<fmt:setLocale value="pt_BR" />
-													<fmt:formatNumber type="currency" value="${produto.valor}" />
-												</p>
-											</div>
-											<div class="bottom"></div>
-										</div>
-									</div>
-								</a>
-								<div class="product-bottom"></div>
-							</c:forEach>
-						</div>
-						<div class="cl"></div>
+					</ul>
+					<div class="jcarousel-control">
+						<a title="slide 1" href="#">1</a> <a title="slide 2" href="#">2</a>
+						<a title="slide 3" href="#">3</a> <a title="slide 4" href="#">4</a>
 					</div>
-					<!-- END Products -->
-					<!-- Products -->
-					<div class="products best-sellers">
-						<div class="title">
-							<h2>Bestsellers</h2>
-							<a class="title-link" title="More Bestsellers" href="#">More
-								Bestsellers</a> <img class="bullet" src="css/images/bullet.png"
-								alt="small grey bullet" />
-						</div>
-						<div class="row">
-							<div class="product-holder">
-								<div class="product">
-									<a title="More Details" href="#"><img
-										src="css/images/7.jpg" alt="Colourful armchairs" /></a>
-									<div class="desc">
-										<p>Item Name</p>
-										<p class="price">
-											<span class="dollar">$</span>678,99&nbsp;&nbsp;<strike><span
-												class="dollar">$</span>750,00</strike>
-										</p>
-									</div>
-									<div class="bottom"></div>
-								</div>
-								<div class="product-bottom"></div>
-							</div>
-							<div class="product-holder">
-								<div class="product">
-									<a title="More Details" href="#"><img
-										src="css/images/8.jpg" alt="Black classical armchair" /></a> <img
-										class="new-label" src="css/images/new.png" alt="new sign" />
-									<div class="desc">
-										<p>Item Name</p>
-										<p class="price">
-											<span class="dollar">$</span>399,99&nbsp;&nbsp;<strike><span
-												class="dollar">$</span>450,00</strike>
-										</p>
-									</div>
-									<div class="bottom"></div>
-								</div>
-								<div class="product-bottom"></div>
-							</div>
-							<div class="product-holder">
-								<div class="product">
-									<a title="More Details" href="#"><img
-										src="css/images/9.jpg" alt="White sofa" /></a>
-									<div class="desc">
-										<p>Item Name</p>
-										<p class="price">
-											<span class="dollar">$</span>799,99&nbsp;&nbsp;<strike><span
-												class="dollar">$</span>1250,00</strike>
-										</p>
-									</div>
-									<div class="bottom"></div>
-								</div>
-								<div class="product-bottom"></div>
-							</div>
-						</div>
-						<div class="cl"></div>
+					<div class="slider-arrows">
+						<a title="Next Slide" id="next" href="#">next</a> <a
+							title="Previous Slide" id="prev" href="#">prev</a>
 					</div>
-					<!-- END Products -->
 				</div>
-				<!-- END Content -->
-				<div class="cl"></div>
 			</div>
-			<!-- END Main -->
+			<!-- END Slider -->
+			<!-- Sidebar -->
+			<div id="sidebar">
+				<div class="box">
+					<div class="title">
+						<h2>Categorias</h2>
+						<img class="bullet" src="css/images/bullet.png"
+							alt="small grey bullet" />
+					</div>
+					<ul>
+						<c:forEach items="${categorias.lista}" var="categoria">
+							<li><a
+								href="${pageContext.request.contextPath}/index?idCategoria=${categoria.id}">${categoria.nome}</a></li>
+						</c:forEach>
+					</ul>
+				</div>
+				<div class="box">
+					<div class="title">
+						<h2>Follow Us</h2>
+						<img class="bullet" src="css/images/bullet.png"
+							alt="small grey bullet" />
+					</div>
+					<ul class="socials">
+						<li><a title="Facebook" href="#"><img
+								src="css/images/fb.png" alt="facebook icon" />facebook</a></li>
+						<li><a title="Tweeter" href="#"><img
+								src="css/images/tweet.png" alt="tweeter icon" />twitter</a></li>
+						<li><a title="Behance" href="#"><img
+								src="css/images/behance.png" alt="behance icon" />behance</a></li>
+						<li><a title="Blogger" href="#"><img
+								src="css/images/blogger.png" alt="blogger icon" />blogger</a></li>
+						<li><a title="Digg" href="#"><img
+								src="css/images/digg.png" alt="digg icon" />digg</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- END Sidebar -->
+			<!-- Content -->
+			<div id="content">
+				<!-- Products -->
+				<div class="produtos">
+					<div class="title">
+						<h2>Produtos</h2>
+						<img class="bullet" src="css/images/bullet.png"
+							alt="small grey bullet" />
+					</div>
+					<div class="row">
+						<c:choose>
+							<c:when test="${categoriaSelecionada == 0}">
+								<c:forEach items="${produtos.lista}" var="produto">
+									<a
+										href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
+										<div class="produto-holder">
+											<div class="produto">
+												<img src="${imagens.getLink(produto.id)}">
+												<div class="descricao">
+													<p>${produto.modelo}</p>
+													<p class="preco">
+														<fmt:setLocale value="pt_BR" />
+														<fmt:formatNumber type="currency" value="${produto.valor}" />
+													</p>
+												</div>
+												<div class="bottom"></div>
+											</div>
+										</div>
+									</a>
+									<div class="produto-bottom"></div>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<c:forEach
+									items="${produtos.buscaListaPelaCategoria(categoriaSelecionada)}"
+									var="produto">
+									<a
+										href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
+
+										<div class="produto-holder">
+											<div class="produto">
+												<img src="${imagens.getLink(produto.id)}">
+												<div class="descricao">
+													<p>${produto.modelo}</p>
+													<p class="preco">
+														<fmt:setLocale value="pt_BR" />
+														<fmt:formatNumber type="currency" value="${produto.valor}" />
+													</p>
+												</div>
+												<div class="bottom"></div>
+											</div>
+										</div>
+									</a>
+									<div class="produto-bottom"></div>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					</div>
+					<div class="cl"></div>
+				</div>
+
+			</div>
+			<!-- END Content -->
+			<div class="cl"></div>
 		</div>
-		<!-- END Wrapper Middle -->
-		<div id="wrapper-bottom"></div>
-		<!-- Footer  -->
-		<div id="footer">
-			<span class="author"><a href="http://css-free-templates.com/">Design
-					by: CSS Free Templates</a></span>
-			<p>
-				<a title="About Us" href="#">About Us</a><span>&frasl;&frasl;</span><a
-					title="Site Map" href="#">Site Map</a><span>&frasl;&frasl;</span><a
-					title="Advanced Search" href="#">Advanced Search</a><span>&frasl;&frasl;</span><a
-					title="Customer Service" href="#">Customer Service</a><span>&frasl;&frasl;</span><a
-					title="Contact Us" href="#">Contact Us</a><span>&frasl;&frasl;</span>
-			</p>
-		</div>
-		<!-- END Footer -->
+		<!-- END Main -->
+	</div>
+	<!-- END Wrapper Middle -->
+	<div id="wrapper-bottom"></div>
+	<!-- Footer  -->
+	<div id="footer">
+		<span class="author"> por Tulio Carreira e Marcos Parra</span>
+
+	</div>
+	<!-- END Footer -->
 	</div>
 </body>
 </html>

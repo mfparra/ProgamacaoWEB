@@ -141,6 +141,38 @@ public class ProdutoDAO {
 		return produtos;
 	}
 
+	// faz a busca de produto(s) pela categoria
+	public List<Produto> buscaListaPelaCategoria(Long categoria) {
+		List<Produto> produtos = new ArrayList<Produto>();
+		FabricanteDAO fabricanteDAO = new FabricanteDAO();
+		CategoriaDAO categoriaDAO = new CategoriaDAO();
+
+		PreparedStatement stmt;
+		String sql = "select * from produto where id_categoria = ?";
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setLong(1, categoria);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Produto produto = new Produto();
+				produto.setModelo("modelo");
+				produto.setId(rs.getLong("id"));
+				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(categoria));
+				produto.setDescricao(rs.getString("descricao"));
+				produto.setDurBateria(rs.getLong("duracaoBateria"));
+				produto.setFabricante(fabricanteDAO.buscaFabricantePeloID(rs.getLong("id_fabricante")));
+				produto.setTamTela(rs.getLong("tamanhoTela"));
+				produto.setValor(rs.getDouble("valor"));
+				produtos.add(produto);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return produtos;
+	}
+
 	// devolve uma lista com todos produtos
 	public List<Produto> getLista() {
 		List<Produto> produtos = new ArrayList<Produto>();
@@ -171,29 +203,29 @@ public class ProdutoDAO {
 	}
 
 	// devolve uma lista com todas as imagens de um produto
-		public List<Imagem> buscaImagens(Produto produto) {
-			List<Imagem> imagens = new ArrayList<Imagem>();
-			ProdutoDAO produtoDAO = new ProdutoDAO();
-			PreparedStatement stmt;
-			try {
-				stmt = connection.prepareStatement("select * from imagem where id_produto = ?");
-				stmt.setLong(1, produto.getId());
-				ResultSet rs = stmt.executeQuery();
-				while (rs.next()) {
-					Imagem imagem = new Imagem();
-					imagem.setId(rs.getLong("id"));
-					imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
-					imagem.setLink(rs.getString("imagem"));
-					imagens.add(imagem);
-				}
-				rs.close();
-				stmt.close();
-			} catch (SQLException e) {
-				throw new RuntimeException(e);
+	public List<Imagem> buscaImagens(Produto produto) {
+		List<Imagem> imagens = new ArrayList<Imagem>();
+		ProdutoDAO produtoDAO = new ProdutoDAO();
+		PreparedStatement stmt;
+		try {
+			stmt = connection.prepareStatement("select * from imagem where id_produto = ?");
+			stmt.setLong(1, produto.getId());
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Imagem imagem = new Imagem();
+				imagem.setId(rs.getLong("id"));
+				imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
+				imagem.setLink(rs.getString("imagem"));
+				imagens.add(imagem);
 			}
-			return imagens;
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
-		
+		return imagens;
+	}
+
 	// faz a busca de produto(s) em Promocao
 	public List<Produto> getProdutoPromocao() {
 		List<Produto> produtos = new ArrayList<Produto>();

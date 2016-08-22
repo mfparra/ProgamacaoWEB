@@ -12,13 +12,13 @@
 
 <link rel="shortcut icon" href="/resources/css/images/favicon.ico" />
 
-<spring:url value="/resources/css/ecommerce.css" var="ecommerceCSS" />
+<spring:url value="/resources/css/detalhes.css" var="detalhesCSS" />
 <spring:url value="/resources/js/jquery-1.7.min.js" var="js1" />
 <spring:url value="/resources/js/jquery.jcarousel.js" var="js2" />
 <spring:url value="/resources/js/DD_belatedPNG-min.js" var="js3" />
 <spring:url value="/resources/js/functions.js" var="js4" />
 
-<link href="${ecommerceCSS}" rel="stylesheet" type="text/css" />
+<link href="${detalhesCSS}" rel="stylesheet" type="text/css" />
 <script src="${js2}" type="text/javascript"></script>
 <script src="${js3}" type="text/javascript"></script>
 <script src="${js4}" type="text/javascript"></script>
@@ -33,12 +33,12 @@
 	<div id="produto-detalhes" class="inline">
 		<div class="images">
 			<div class="main-image">
-				<img src="${listaImagens[0].link}">
+				<img src="${listaImagens[0].link}" width="240px">
 			</div>
 			<div class="tiny-images">
 				<c:if test="${not empty listaImagens}">
 					<c:forEach items="${listaImagens}" var="imagem">
-						<img src="${imagem.link}">
+						<img src="${imagem.link}" width="60px">
 					</c:forEach>
 				</c:if>
 			</div>
@@ -54,7 +54,7 @@
 
 				<div class="descricao">${produtoSelecionado.descricao}</div>
 
-				<div class="preco destaque">
+				<div class="preco">
 					<fmt:setLocale value="pt_BR" />
 					<fmt:formatNumber type="currency"
 						value="${produtoSelecionado.valor}" />
@@ -71,7 +71,14 @@
 			</div>
 		</form>
 	</div>
+	<div id="produtos-relacionados"
+		data-genero="${produtoSelecionado.categoria}">
+		<h2>Você também pode gostar:</h2>
+		<div class="content loading">
+			<!-- Será carregado por AJAX -->
+		</div>
 
+	</div>
 	<script src="${app}/js/prototype.js" type="text/javascript" />
 	<script src="${app}/js/produtos_recomendados.js" type="text/javascript" />
 

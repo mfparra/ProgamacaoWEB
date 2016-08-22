@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import br.edu.ufabc.ecommerce.dao.CategoriaDAO;
 import br.edu.ufabc.ecommerce.dao.ImagemDAO;
 import br.edu.ufabc.ecommerce.dao.ProdutoDAO;
+import br.edu.ufabc.ecommerce.model.Categoria;
 import br.edu.ufabc.ecommerce.model.Imagem;
 import br.edu.ufabc.ecommerce.model.Produto;
 
@@ -17,16 +19,27 @@ import br.edu.ufabc.ecommerce.model.Produto;
 public class ProdutoController {
 
 	@RequestMapping("/")
-	public String home() {
+	public String indexSemParametro(@RequestParam(defaultValue = "0") Long idCategoria, Model model) {
+		// categoria 0 significa que os produtos de todas as categorias serão
+		// carregados
+		model.addAttribute("categoriaSelecionada", idCategoria);
+		return "index";
+	}
+
+	@RequestMapping("/index")
+	public String indexComParametro(@RequestParam(defaultValue = "0") Long idCategoria, Model model) {
+		// categoria 0 significa que os produtos de todas as categorias serão
+		// carregados
+		model.addAttribute("categoriaSelecionada", idCategoria);
 		return "index";
 	}
 
 	@RequestMapping("/produtoDetalhes")
 	public String produtoDetalhes(@RequestParam Long id, Model model) {
 		ProdutoDAO produtoDAO = new ProdutoDAO();
-		ImagemDAO imagemDAO = new ImagemDAO();
 		Produto produtoSelecionado = produtoDAO.buscaProdutoPeloID(id);
 		List<Imagem> listaImagens = new ArrayList<Imagem>();
+		// procura todas as imagens do produto em questão
 		listaImagens = produtoDAO.buscaImagens(produtoSelecionado);
 		model.addAttribute("produtoSelecionado", produtoSelecionado);
 		model.addAttribute("listaImagens", listaImagens);
