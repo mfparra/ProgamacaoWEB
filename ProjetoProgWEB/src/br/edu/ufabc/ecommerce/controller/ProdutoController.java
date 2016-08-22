@@ -19,18 +19,24 @@ import br.edu.ufabc.ecommerce.model.Produto;
 public class ProdutoController {
 
 	@RequestMapping("/")
-	public String indexSemParametro(@RequestParam(defaultValue = "0") Long idCategoria, Model model) {
+	public String indexSemParametro(@RequestParam(defaultValue = "0") Long idCategoria,
+			@RequestParam(defaultValue = "1") char order, Model model) {
 		// categoria 0 significa que os produtos de todas as categorias serão
 		// carregados
+		// 1 = Modelo, 2 = Preço
 		model.addAttribute("categoriaSelecionada", idCategoria);
+		model.addAttribute("order", order);
 		return "index";
 	}
 
 	@RequestMapping("/index")
-	public String indexComParametro(@RequestParam(defaultValue = "0") Long idCategoria, Model model) {
+	public String indexComParametro(@RequestParam(defaultValue = "0") Long idCategoria,
+			@RequestParam(defaultValue = "1") char order, Model model) {
 		// categoria 0 significa que os produtos de todas as categorias serão
 		// carregados
+		// 1 = Modelo, 2 = Preço
 		model.addAttribute("categoriaSelecionada", idCategoria);
+		model.addAttribute("order", order);
 		return "index";
 	}
 

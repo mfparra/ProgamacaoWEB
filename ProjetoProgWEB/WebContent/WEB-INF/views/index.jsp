@@ -30,7 +30,8 @@
 		<jsp:useBean id="categorias"
 			class="br.edu.ufabc.ecommerce.dao.CategoriaDAO" />
 		<input type="hidden" name="categoriaSelecionada"
-			value="${categoriaSelecionada}" />
+			value="${categoriaSelecionada}" /> <input type="hidden" name="order"
+			value="${order}" />
 
 		<jsp:useBean id="imagens" class="br.edu.ufabc.ecommerce.dao.ImagemDAO" />
 		<div id="top-navigation">
@@ -64,7 +65,8 @@
 			</div>
 			<!-- END Header -->
 			<!-- Navigation -->
-			<div id="navigation">
+			<div id="navigation"
+				style="background: url(/resources/css/images/navigation.png) no-repeat 0 0;">
 				<ul>
 					<c:forEach items="${categorias.lista}" var="categoria">
 						<li><a
@@ -158,11 +160,17 @@
 						<h2>Produtos</h2>
 						<img class="bullet" src="css/images/bullet.png"
 							alt="small grey bullet" />
+						<p class="title-link" title="OrdenarPor">Ordernar por</p>
+						<a class="title-link-nome" title="Nome"
+							href="${pageContext.request.contextPath}/index?order=1">Nome</a>
+						<a class="title-link-preco" title="Preço"
+							href="${pageContext.request.contextPath}/index?order=2">Preço</a>
 					</div>
 					<div class="row">
 						<c:choose>
 							<c:when test="${categoriaSelecionada == 0}">
-								<c:forEach items="${produtos.lista}" var="produto">
+								<c:forEach items="${produtos.buscaProdutosOrdenados(order)}"
+									var="produto">
 									<a
 										href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
 										<div class="produto-holder">
@@ -184,7 +192,7 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach
-									items="${produtos.buscaListaPelaCategoria(categoriaSelecionada)}"
+									items="${produtos.buscaListaPelaCategoria(categoriaSelecionada, order)}"
 									var="produto">
 									<a
 										href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">

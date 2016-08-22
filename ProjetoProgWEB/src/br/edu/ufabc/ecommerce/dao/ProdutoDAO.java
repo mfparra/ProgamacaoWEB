@@ -142,13 +142,18 @@ public class ProdutoDAO {
 	}
 
 	// faz a busca de produto(s) pela categoria
-	public List<Produto> buscaListaPelaCategoria(Long categoria) {
+	public List<Produto> buscaListaPelaCategoria(Long categoria, char order) {
 		List<Produto> produtos = new ArrayList<Produto>();
 		FabricanteDAO fabricanteDAO = new FabricanteDAO();
 		CategoriaDAO categoriaDAO = new CategoriaDAO();
-
+		String sql;
 		PreparedStatement stmt;
-		String sql = "select * from produto where id_categoria = ?";
+		if (order == '2') {
+			sql = "select * from produto where id_categoria = ? order by valor";
+
+		} else {
+			sql = "select * from produto where id_categoria = ? order by modelo";
+		}
 		try {
 			stmt = connection.prepareStatement(sql);
 			stmt.setLong(1, categoria);
@@ -174,13 +179,17 @@ public class ProdutoDAO {
 	}
 
 	// devolve uma lista com todos produtos
-	public List<Produto> getLista() {
+	public List<Produto> buscaProdutosOrdenados(char order) {
 		List<Produto> produtos = new ArrayList<Produto>();
 		FabricanteDAO fabricanteDAO = new FabricanteDAO();
 		CategoriaDAO categoriaDAO = new CategoriaDAO();
 		PreparedStatement stmt;
 		try {
-			stmt = connection.prepareStatement("select * from produto order by modelo");
+			if (order == '2') {
+				stmt = connection.prepareStatement("select * from produto order by valor");
+			} else {
+				stmt = connection.prepareStatement("select * from produto order by modelo");
+			}
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Produto produto = new Produto();
