@@ -170,6 +170,30 @@ public class ProdutoDAO {
 		return produtos;
 	}
 
+	// devolve uma lista com todas as imagens de um produto
+		public List<Imagem> buscaImagens(Produto produto) {
+			List<Imagem> imagens = new ArrayList<Imagem>();
+			ProdutoDAO produtoDAO = new ProdutoDAO();
+			PreparedStatement stmt;
+			try {
+				stmt = connection.prepareStatement("select * from imagem where id_produto = ?");
+				stmt.setLong(1, produto.getId());
+				ResultSet rs = stmt.executeQuery();
+				while (rs.next()) {
+					Imagem imagem = new Imagem();
+					imagem.setId(rs.getLong("id"));
+					imagem.setProduto(produtoDAO.buscaProdutoPeloID(rs.getLong("id_produto")));
+					imagem.setLink(rs.getString("imagem"));
+					imagens.add(imagem);
+				}
+				rs.close();
+				stmt.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+			return imagens;
+		}
+		
 	// faz a busca de produto(s) em Promocao
 	public List<Produto> getProdutoPromocao() {
 		List<Produto> produtos = new ArrayList<Produto>();

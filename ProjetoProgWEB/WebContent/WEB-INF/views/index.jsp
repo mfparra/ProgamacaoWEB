@@ -9,18 +9,19 @@
 <head>
 <title>Future Store - A melhor loja do Mundo</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<link rel="shortcut icon" href="resources/css/images/favicon.ico" />
+<link rel="shortcut icon" href="/resources/css/images/favicon.ico" />
 
-<spring:url value="/resources/css/ecommerce.css" var="crunchifyCSS" />
-<spring:url value="/resources/css/ecommerce2.css" var="crunchifyCSS2" />
-<link href="${crunchifyCSS}" rel="stylesheet" />
-<link href="${crunchifyCSS2}" rel="stylesheet" />
+<spring:url value="/resources/css/ecommerce.css" var="ecommerceCSS" />
+<spring:url value="/resources/js/jquery-1.7.min.js" var="js1" />
+<spring:url value="/resources/js/jquery.jcarousel.js" var="js2" />
+<spring:url value="/resources/js/DD_belatedPNG-min.js" var="js3" />
+<spring:url value="/resources/js/functions.js" var="js4" />
 
-<script>
-	function loadWindow() {
-		window.open("detalhes");
-	}
-</script>
+<link href="${ecommerceCSS}" rel="stylesheet" type="text/css" />
+<script src="${js2}" type="text/javascript"></script>
+<script src="${js3}" type="text/javascript"></script>
+<script src="${js4}" type="text/javascript"></script>
+
 </head>
 <body>
 	<div class="shell">
@@ -155,7 +156,8 @@
 						</div>
 						<div class="row">
 							<c:forEach items="${produtos.lista}" var="produto">
-								<a href="${pageContext.request.contextPath}/detalhes">
+								<a
+									href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
 
 									<div class="product-holder">
 										<div class="product">

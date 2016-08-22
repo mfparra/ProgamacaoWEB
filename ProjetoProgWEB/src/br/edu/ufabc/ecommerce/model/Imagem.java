@@ -22,15 +22,11 @@ public class Imagem {
 	}
 
 	public String getLink() {
-		return link;
+		return this.link;
 	}
 
 	public void setLink(String link) {
 		this.link = link;
 	}
-
-	
-
-	
 
 }
