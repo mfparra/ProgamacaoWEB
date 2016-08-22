@@ -410,30 +410,6 @@ a.order-button {
 	color: #00a7e7;
 }
 
-.box ul.socials {
-	padding-top: 7px;
-}
-
-.box ul.socials li {
-	font-size: 13px;
-	font-weight: bold;
-	line-height: 26px;
-	border: 0;
-}
-
-.box ul.socials li a {
-	display: block;
-	color: #00a7e7;
-	height: 100%;
-}
-
-.box ul.socials li a img {
-	display: block;
-	float: left;
-	padding: 2px 11px 0 0;
-	width: 24px;
-	height: 23px;
-}
 
 #content {
 	display: inline;
@@ -468,7 +444,7 @@ a.order-button {
 .produtos .title a.title-link-preco {
 	position: absolute;
 	top: 15px;
-	right: 20px;
+	right: 10px;
 	color: #00a7e7;
 	text-decoration: underline;
 }

@@ -20,21 +20,26 @@ public class ProdutoController {
 
 	@RequestMapping("/")
 	public String indexSemParametro(@RequestParam(defaultValue = "0") Long idCategoria,
-			@RequestParam(defaultValue = "1") char order, Model model) {
+			@RequestParam(defaultValue = "1") char order, @RequestParam(defaultValue = "0") Long idFabricante,
+			Model model) {
 		// categoria 0 significa que os produtos de todas as categorias serão
 		// carregados
 		// 1 = Modelo, 2 = Preço
+		model.addAttribute("fabricanteSelecionado", idFabricante);
 		model.addAttribute("categoriaSelecionada", idCategoria);
+		
 		model.addAttribute("order", order);
 		return "index";
 	}
 
 	@RequestMapping("/index")
 	public String indexComParametro(@RequestParam(defaultValue = "0") Long idCategoria,
-			@RequestParam(defaultValue = "1") char order, Model model) {
+			@RequestParam(defaultValue = "1") char order, @RequestParam(defaultValue = "0") Long idFabricante,
+			Model model) {
 		// categoria 0 significa que os produtos de todas as categorias serão
 		// carregados
 		// 1 = Modelo, 2 = Preço
+		model.addAttribute("fabricanteSelecionado", idFabricante);
 		model.addAttribute("categoriaSelecionada", idCategoria);
 		model.addAttribute("order", order);
 		return "index";

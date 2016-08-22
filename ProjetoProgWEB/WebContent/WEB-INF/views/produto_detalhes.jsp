@@ -71,16 +71,6 @@
 			</div>
 		</form>
 	</div>
-	<div id="produtos-relacionados"
-		data-genero="${produtoSelecionado.categoria}">
-		<h2>Você também pode gostar:</h2>
-		<div class="content loading">
-			<!-- Será carregado por AJAX -->
-		</div>
-
-	</div>
-	<script src="${app}/js/prototype.js" type="text/javascript" />
-	<script src="${app}/js/produtos_recomendados.js" type="text/javascript" />
 
 </body>
 </html>

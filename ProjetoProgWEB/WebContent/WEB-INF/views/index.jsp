@@ -29,6 +29,9 @@
 			class="br.edu.ufabc.ecommerce.dao.ProdutoDAO" />
 		<jsp:useBean id="categorias"
 			class="br.edu.ufabc.ecommerce.dao.CategoriaDAO" />
+		<jsp:useBean id="fabricantes"
+			class="br.edu.ufabc.ecommerce.dao.FabricanteDAO" />
+
 		<input type="hidden" name="categoriaSelecionada"
 			value="${categoriaSelecionada}" /> <input type="hidden" name="order"
 			value="${order}" />
@@ -68,6 +71,8 @@
 			<div id="navigation"
 				style="background: url(/resources/css/images/navigation.png) no-repeat 0 0;">
 				<ul>
+					<li><a
+						href="${pageContext.request.contextPath}/index?idCategoria=0">Todos</a></li>
 					<c:forEach items="${categorias.lista}" var="categoria">
 						<li><a
 							href="${pageContext.request.contextPath}/index?idCategoria=${categoria.id}">${categoria.nome}</a></li>
@@ -79,43 +84,7 @@
 		<!-- END Navigation -->
 		<!-- Main -->
 		<div id="main">
-			<!-- Slider -->
-			<div id="slider-frame">
-				<div id="slider">
-					<ul>
-						<c:forEach items="${produtos.getProdutoPromocao()}" var="produto">
-							<li><img src="${imagens.getLink(produto.id)}" width="340"
-								height="400" />
-								<div class="caption">
-									<img
-										src="http://i1255.photobucket.com/albums/hh638/Marcos_Freitas_Parra/promocao_1_zpsqeirxwuw.png"
-										width="340" height="196" />
-									<p>${produto.modelo}</p>
-									<a title="Comprar!" class="botaoComprar" href="#">Comprar</a>
-								</div></li>
-						</c:forEach>
 
-						<li><img src="css/images/chair.png"
-							alt="Orage rotating chair" />
-							<div class="caption">
-								<img src="css/images/mega-sale.png" alt="Mega Sale Sign" />
-								<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-								<a title="Order Now!" class="order-button" href="#">order
-									now</a>
-							</div></li>
-
-					</ul>
-					<div class="jcarousel-control">
-						<a title="slide 1" href="#">1</a> <a title="slide 2" href="#">2</a>
-						<a title="slide 3" href="#">3</a> <a title="slide 4" href="#">4</a>
-					</div>
-					<div class="slider-arrows">
-						<a title="Next Slide" id="next" href="#">next</a> <a
-							title="Previous Slide" id="prev" href="#">prev</a>
-					</div>
-				</div>
-			</div>
-			<!-- END Slider -->
 			<!-- Sidebar -->
 			<div id="sidebar">
 				<div class="box">
@@ -131,26 +100,21 @@
 						</c:forEach>
 					</ul>
 				</div>
+
 				<div class="box">
 					<div class="title">
-						<h2>Follow Us</h2>
+						<h2>Fabricantes</h2>
 						<img class="bullet" src="css/images/bullet.png"
 							alt="small grey bullet" />
 					</div>
-					<ul class="socials">
-						<li><a title="Facebook" href="#"><img
-								src="css/images/fb.png" alt="facebook icon" />facebook</a></li>
-						<li><a title="Tweeter" href="#"><img
-								src="css/images/tweet.png" alt="tweeter icon" />twitter</a></li>
-						<li><a title="Behance" href="#"><img
-								src="css/images/behance.png" alt="behance icon" />behance</a></li>
-						<li><a title="Blogger" href="#"><img
-								src="css/images/blogger.png" alt="blogger icon" />blogger</a></li>
-						<li><a title="Digg" href="#"><img
-								src="css/images/digg.png" alt="digg icon" />digg</a></li>
+					<ul>
+						<c:forEach items="${fabricantes.lista}" var="fabricante">
+							<li>${fabricante.nome}</li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
+
 			<!-- END Sidebar -->
 			<!-- Content -->
 			<div id="content">
