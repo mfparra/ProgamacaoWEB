@@ -116,7 +116,7 @@ public class ProdutoDAO {
 		CategoriaDAO categoriaDAO = new CategoriaDAO();
 
 		PreparedStatement stmt;
-		String sql = "select * from produto where modelo = ?";
+		String sql = "select * from produto where modelo like '%?%'";
 		try {
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, modelo);

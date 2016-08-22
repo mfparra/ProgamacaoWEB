@@ -52,15 +52,12 @@
 		<div id="wrapper-middle">
 			<!-- Header -->
 			<div id="header">
-				<h1 id="logo">
-					<a title="home" href="#">Future Store</a>
-				</h1>
 				<!-- Search -->
 				<div id="search">
 					<form action="" method="post">
 						<input type="text" class="field"
-							value="Search entire store here..."
-							title="Search entire store here..." /> <input type="submit"
+							value="Procure por um produto..."
+							title="Procure por um produto..." /> <input type="submit"
 							value="" class="submit-button" />
 					</form>
 				</div>
@@ -189,12 +186,9 @@
 		</div>
 		<!-- END Main -->
 	</div>
-	<!-- END Wrapper Middle -->
-	<div id="wrapper-bottom"></div>
 	<!-- Footer  -->
 	<div id="footer">
 		<span class="author"> por Tulio Carreira e Marcos Parra</span>
-
 	</div>
 	<!-- END Footer -->
 	</div>

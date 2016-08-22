@@ -9,7 +9,7 @@ body {
 	line-height: 16px;
 	font-family: arial, sans-serif;
 	color: #3e3e3e;
-	background: #abd9fa url(images/body.jpg) repeat-y center 50px;
+	background: hsl(207, 100%, 98%);
 }
 
 a {
@@ -73,7 +73,7 @@ textarea {
 .welcome-message p {
 	font-size: 11px;
 	padding-top: 2px;
-	color: #fff;
+	color: #959595;
 }
 
 #top-navigation {
@@ -84,7 +84,7 @@ textarea {
 
 #top-navigation a {
 	font-size: 11px;
-	color: #fff;
+	color: #959595;
 	padding-left: 18px;
 }
 
@@ -104,21 +104,21 @@ textarea {
 
 #top-navigation span {
 	font-size: 11px;
-	color: #fff;
+	color: #959595;
 }
 
 #wrapper-top {
-	margin-top: 9px;
-	height: 31px;
+	margin-top: 12px;
+	height: 0px;
 	line-height: 0;
 	font-size: 0;
 	text-indent: -4000px;
-	background: url(images/wrapper-top.png) no-repeat 0 0;
+	background: #c2d0da url(images/wrapper-top.png) no-repeat 0 0;
 }
 
 #wrapper-middle {
-	padding: 0 25px 0 27px;
-	background: url(images/wrapper-middle.png) repeat-y 0 0;
+	padding: 17px 25px 0 27px;
+	background: #c2d0da url(images/wrapper-middle.png) repeat-y 0 0;
 }
 
 #wrapper-bottom {
@@ -126,33 +126,19 @@ textarea {
 	line-height: 0;
 	font-size: 0;
 	text-indent: -4000px;
-	background: url(images/wrapper-bottom.png) no-repeat 0 0;
+	background: #c2d0da url(images/wrapper-bottom.png) no-repeat 0 0;
 }
 
 #header {
 	position: relative;
-	height: 99%;
-	padding: 6px 0 26px 17px;
-}
-
-#logo {
-	width: 293px;
-	font-size: 0;
-	line-height: 0;
-}
-
-#logo a {
-	display: block;
-	width: 293px;
-	height: 67px;
-	background: url(images/logo.png) no-repeat 0 0;
-	text-indent: -4000px;
+	height: 80%;
+	padding: -1px 0 26px 17px;
 }
 
 #search {
 	position: absolute;
-	top: 52px;
-	right: 0;
+	top: 77px;
+	right: -23px;
 	width: 190px;
 	background: url(images/search.png) no-repeat 0 0;
 }
@@ -213,7 +199,7 @@ textarea {
 	height: 59px;
 	padding: 0 25px 6px 20px;
 	color: #fff;
-	background: url(images/nav-item.png) repeat-x 0 -5000px;
+	background: #cfd3eaurl(images/nav-item.png) repeat-x 0 -5000px;
 	text-shadow: 0 -1px #346396;
 }
 
@@ -237,7 +223,7 @@ textarea {
 }
 
 #main {
-	padding-top: 15px;
+	padding-top: 44px;
 }
 
 #slider-frame {
