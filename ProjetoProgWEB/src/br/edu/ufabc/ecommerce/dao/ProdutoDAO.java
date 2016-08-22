@@ -160,7 +160,7 @@ public class ProdutoDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Produto produto = new Produto();
-				produto.setModelo("modelo");
+				produto.setModelo(rs.getString("modelo"));
 				produto.setId(rs.getLong("id"));
 				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(categoria));
 				produto.setDescricao(rs.getString("descricao"));

@@ -134,6 +134,7 @@
 									var="produto">
 									<a
 										href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
+									
 										<div class="produto-holder">
 											<div class="produto">
 												<img src="${imagens.getLink(produto.id)}">
@@ -157,7 +158,6 @@
 									var="produto">
 									<a
 										href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
-
 										<div class="produto-holder">
 											<div class="produto">
 												<img src="${imagens.getLink(produto.id)}">

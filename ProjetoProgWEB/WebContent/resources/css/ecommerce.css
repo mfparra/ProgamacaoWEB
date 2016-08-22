@@ -113,12 +113,12 @@ textarea {
 	line-height: 0;
 	font-size: 0;
 	text-indent: -4000px;
-	background: #c2d0da url(images/wrapper-top.png) no-repeat 0 0;
+	background: #c2d0da;
 }
 
 #wrapper-middle {
 	padding: 17px 25px 0 27px;
-	background: #c2d0da url(images/wrapper-middle.png) repeat-y 0 0;
+	background: #ff9600;
 }
 
 #wrapper-bottom {
@@ -126,7 +126,7 @@ textarea {
 	line-height: 0;
 	font-size: 0;
 	text-indent: -4000px;
-	background: #c2d0da url(images/wrapper-bottom.png) no-repeat 0 0;
+	background: #c2d0da;
 }
 
 #header {
@@ -467,7 +467,7 @@ a.order-button {
 }
 
 .produto-bottom {
-	height: 12px;
+	height: 0px;
 	line-height: 0;
 	font-size: 0;
 	background: url(images/produto-bottom.png) no-repeat -4000px 0;
@@ -481,7 +481,7 @@ a.order-button {
 }
 
 .produto .descricao {
-	padding: 8px 0 0 10px;
+	padding: 11px 0 0 10px;
 	width: 182px;
 	background: #ff9600 url(images/desc.png) repeat-x 0 0;
 }
@@ -495,7 +495,7 @@ a.order-button {
 	font-size: 18px;
 }
 
-.produto .descricao  span.dollar {
+.produto .descricao  {
 	font-size: 12px;
 }
 
