@@ -34,7 +34,8 @@
 
 		<input type="hidden" name="categoriaSelecionada"
 			value="${categoriaSelecionada}" /> <input type="hidden" name="order"
-			value="${order}" />
+			value="${order}" /> <input type="hidden" name="filtroProduto"
+			value="${filtroProduto}" />
 
 		<jsp:useBean id="imagens" class="br.edu.ufabc.ecommerce.dao.ImagemDAO" />
 		<div id="top-navigation">
@@ -54,9 +55,8 @@
 			<div id="header">
 				<!-- Search -->
 				<div id="search">
-					<form action="" method="post">
-						<input type="text" class="field"
-							value="Procure por um produto..."
+					<form action="index" method="post">
+						<input type="text" class="field" value="Procure por um produto..."
 							title="Procure por um produto..." /> <input type="submit"
 							value="" class="submit-button" />
 					</form>
@@ -129,12 +129,13 @@
 					</div>
 					<div class="row">
 						<c:choose>
-							<c:when test="${categoriaSelecionada == 0}">
-								<c:forEach items="${produtos.buscaProdutosOrdenados(order)}"
+							<c:when test="${!filtroProduto.equals('')}">
+								<c:forEach
+									items="${produtos.buscaProdutoPeloModelo(filtroProduto)}"
 									var="produto">
 									<a
 										href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
-									
+
 										<div class="produto-holder">
 											<div class="produto">
 												<img src="${imagens.getLink(produto.id)}">
@@ -153,29 +154,59 @@
 								</c:forEach>
 							</c:when>
 							<c:otherwise>
-								<c:forEach
-									items="${produtos.buscaListaPelaCategoria(categoriaSelecionada, order)}"
-									var="produto">
-									<a
-										href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
-										<div class="produto-holder">
-											<div class="produto">
-												<img src="${imagens.getLink(produto.id)}">
-												<div class="descricao">
-													<p>${produto.modelo}</p>
-													<p class="preco">
-														<fmt:setLocale value="pt_BR" />
-														<fmt:formatNumber type="currency" value="${produto.valor}" />
-													</p>
+								<c:choose>
+									<c:when test="${categoriaSelecionada == 0}">
+										<c:forEach items="${produtos.buscaProdutosOrdenados(order)}"
+											var="produto">
+											<a
+												href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
+
+												<div class="produto-holder">
+													<div class="produto">
+														<img src="${imagens.getLink(produto.id)}">
+														<div class="descricao">
+															<p>{produto.modelo}</p>
+															<p class="preco">
+																<fmt:setLocale value="pt_BR" />
+																<fmt:formatNumber type="currency"
+																	value="${produto.valor}" />
+															</p>
+														</div>
+														<div class="bottom"></div>
+													</div>
 												</div>
-												<div class="bottom"></div>
-											</div>
-										</div>
-									</a>
-									<div class="produto-bottom"></div>
-								</c:forEach>
+											</a>
+											<div class="produto-bottom"></div>
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<c:forEach
+											items="${produtos.buscaListaPelaCategoria(categoriaSelecionada, order)}"
+											var="produto">
+											<a
+												href="${pageContext.request.contextPath}/produtoDetalhes?id=${produto.id}">
+												<div class="produto-holder">
+													<div class="produto">
+														<img src="${imagens.getLink(produto.id)}">
+														<div class="descricao">
+															<p>${produto.modelo}</p>
+															<p class="preco">
+																<fmt:setLocale value="pt_BR" />
+																<fmt:formatNumber type="currency"
+																	value="${produto.valor}" />
+															</p>
+														</div>
+														<div class="bottom"></div>
+													</div>
+												</div>
+											</a>
+											<div class="produto-bottom"></div>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
 							</c:otherwise>
 						</c:choose>
+
 					</div>
 					<div class="cl"></div>
 				</div>

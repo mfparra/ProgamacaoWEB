@@ -116,14 +116,14 @@ public class ProdutoDAO {
 		CategoriaDAO categoriaDAO = new CategoriaDAO();
 
 		PreparedStatement stmt;
-		String sql = "select * from produto where modelo like '%?%'";
+		String sql = "select * from produto where modelo like ?";
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setString(1, modelo);
+			stmt.setString(1, "%"+modelo+"%");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Produto produto = new Produto();
-				produto.setModelo(modelo);
+				produto.setModelo(rs.getString("modelo"));
 				produto.setId(rs.getLong("id"));
 				produto.setCategoria(categoriaDAO.buscaCategoriaPeloID(rs.getLong("id_categoria")));
 				produto.setDescricao(rs.getString("descricao"));
